@@ -51,3 +51,7 @@ set laststatus=2
 set statusline=[%n]\ %<%F\ \ \ [%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \ 
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+set backupdir=~/.vimbackup
+set directory=~/.vimswap
+
