@@ -17,13 +17,15 @@ set tabstop=4
 " " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+set encoding=utf8	" explains itself
+
 set backup		" keep a backup file
 
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
-set hlsearch " highlight search terms
+set nohlsearch " do not highlight search terms
 
   " Enable file type detection.
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
@@ -56,3 +58,4 @@ set backupdir=~/.vimbackup  " change backup and swap
 set directory=~/.vimswap    " storage locations
 
 set number " always display line numbers
+highlight LineNr ctermfg=darkgrey " color the line number
