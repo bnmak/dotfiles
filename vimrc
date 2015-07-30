@@ -50,8 +50,9 @@ set visualbell " don't beep
 set laststatus=2
 set statusline=[%n]\ %<%F\ \ \ [%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \ 
 
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+set runtimepath^=~/.vim/bundle/ctrlp.vim " nice completions
 
-set backupdir=~/.vimbackup
-set directory=~/.vimswap
+set backupdir=~/.vimbackup  " change backup and swap
+set directory=~/.vimswap    " storage locations
 
+set number " always display line numbers
