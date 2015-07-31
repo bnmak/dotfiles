@@ -5,11 +5,20 @@ fpath=(~/.zshCompletion $fpath)
 autoload -Uz promptinit && promptinit
 autoload -U colors && colors
 
+# make sure colors look nice
 export TERM=screen-256color
 export PAGER=most
 
-# a nice prompt: current directory in red
+# a nice prompt on the left: current directory in red
 PROMPT="%B%{$fg[red]%}%~ > %b%{$reset_color%}"
+
+# right-side prompt shows current git stuff
+setopt prompt_subst
+source ~/.zshPlugins/git_prompt.zsh
+
+
+# source ~/.zshPlugins/git-prompt.sh
+# export RPROMPT=$'$(__git_ps1 "%s")'
 
 # Use emacs keybindings even if our EDITR is set to vi
 bindkey -e
@@ -17,6 +26,10 @@ bindkey -e
 # nice aliases
 alias ls='ls -GFhl --literal --color=auto --hide-control-chars --group-directories-first'
 alias more=most # most is nicer than more
+
+# setup environment stuff
+export EDITOR="vim"
+export GREP_OPTIONS='--color=auto' # colorize grep
 
 # Load stuff from external scripts
 source /home/brian/.zshPlugins/colored-man.plugin.zsh # colored man pages
@@ -58,9 +71,6 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
-
-export EDITOR="vim"
-export GREP_OPTIONS='--color=auto' # colorize grep
 
 bindkey '\e.' insert-last-word # alt-. inserts the last word from the previous history event at the cursor position
 bindkey '\ex' undefined-key # free key up for tmux
