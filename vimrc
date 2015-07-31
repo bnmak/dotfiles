@@ -42,6 +42,8 @@ set nohlsearch " do not highlight search terms
 
   augroup END
 
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " don't autocomment next line after setting comment
+
 set showmatch " show matching parens
 
 set smartcase " ignore case when searching if pattern is all lowercase, otherwise case-sensitive
@@ -57,5 +59,10 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim " nice completions
 set backupdir=~/.vimbackup  " change backup and swap
 set directory=~/.vimswap    " storage locations
 
-set number " always display line numbers
-highlight LineNr ctermfg=darkgrey " color the line number
+set relativenumber " always display relative line numbers
+
+set modelines=0 " security hole!
+
+set wildmenu " nice completion
+
+
