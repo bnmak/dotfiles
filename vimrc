@@ -1,5 +1,6 @@
 " This must be first, because it changes other options as a side effect.
-  set nocompatible
+set nocompatible
+nnoremap <BS> x " this key got fucked up somehow
 
 " color stuff
 set t_Co=256
@@ -64,5 +65,3 @@ set relativenumber " always display relative line numbers
 set modelines=0 " security hole!
 
 set wildmenu " nice completion
-
-
