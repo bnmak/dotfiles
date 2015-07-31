@@ -20,7 +20,6 @@ alias more=most # most is nicer than more
 
 # Load stuff from external scripts
 source /home/brian/.zshPlugins/colored-man.plugin.zsh # colored man pages
-# source /home/brian/.zshPlugins/dirstack.zsh # Directory stack config
 source /home/brian/.zshPlugins/history.zsh # Set up history
 source /home/brian/.zshPlugins/zsh-syntax-highlighting.zsh # syntax highlighting
 
@@ -54,7 +53,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 fignore=(\~) #ignore these extensions during completiom
 
-# Enable Ctrl-x-e to edit command line and designate Emacs as the editor
+# Enable Ctrl-x-e to edit command line
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
