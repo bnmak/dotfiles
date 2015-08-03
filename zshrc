@@ -77,3 +77,8 @@ bindkey '\ex' undefined-key # free key up for tmux
 bindkey '^w' backward-kill-word
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+
+# Some git variables
+export GIT_AUTHOR_NAME="Brian Myers"
+export GIT_AUTHOR_EMAIL="brian.myers.alaska@gmail.com"
+
