@@ -63,6 +63,7 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+zstyle -e ':completion:*' hosts 'reply=()'
 
 fignore=(\~) #ignore these extensions during completiom
 
@@ -78,7 +79,4 @@ bindkey '^w' backward-kill-word
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
-# Some git variables
-export GIT_AUTHOR_NAME="Brian Myers"
-export GIT_AUTHOR_EMAIL="brian.myers.alaska@gmail.com"
 
