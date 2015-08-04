@@ -16,20 +16,16 @@ PROMPT="%B%{$fg[red]%}%~ > %b%{$reset_color%}"
 setopt prompt_subst
 source ~/.zshPlugins/git_prompt.zsh
 
-
-# source ~/.zshPlugins/git-prompt.sh
-# export RPROMPT=$'$(__git_ps1 "%s")'
-
-# Use emacs keybindings even if our EDITR is set to vi
+# Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
 # nice aliases
 alias ls='ls -GFhl --literal --color=auto --hide-control-chars --group-directories-first'
-alias more=most # most is nicer than more
+alias more=most
 
 # setup environment stuff
 export EDITOR="vim"
-export GREP_OPTIONS='--color=auto' # colorize grep
+export GREP_OPTIONS='--color=auto'
 
 # Load stuff from external scripts
 source /home/brian/.zshPlugins/colored-man.plugin.zsh # colored man pages
@@ -46,9 +42,9 @@ setopt extendedglob # nicer wildcards
 
 # Completion setup
 autoload -Uz compinit && compinit
-setopt correct # spelling correction for commands
-setopt correct_all # spelling correction for arguments
-setopt always_to_end # when completing from middle of word, move cursor to end
+setopt correct
+setopt correct_all
+setopt always_to_end
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' group-name ''
@@ -78,5 +74,3 @@ bindkey '\ex' undefined-key # free key up for tmux
 bindkey '^w' backward-kill-word
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-
-

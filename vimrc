@@ -1,4 +1,4 @@
-" This must be first, because it changes other options as a side effect.
+" This must be first, because it changes other options as a side effect
 set nocompatible
 nnoremap <BS> x " this key got fucked up somehow
 
@@ -15,33 +15,34 @@ call pathogen#infect()
 " tab is four spaces
 set tabstop=4
 
-" " allow backspacing over everything in insert mode
+" allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-set encoding=utf8	" explains itself
+set encoding=utf8	  " explains itself
 
-set backup		" keep a backup file
+set backup		      " keep a backup file
 
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
-set nohlsearch " do not highlight search terms
+set history=50		  " keep 50 lines of command line history
+set ruler		      " show the cursor position all the time
+set showcmd		      " display incomplete commands
+set incsearch		  " do incremental searching
+set nohlsearch        " do not highlight search terms
 
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
+" Enable file type detection.
+" Use the default filetype settings, so that mail gets 'tw' set to 72,
+" 'cindent' is on in C files, etc.
+" Also load indent files, to automatically do language-dependent indenting.
 
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
+filetype plugin indent on
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+" Put these in an autocmd group, so that we can delete them easily.
+augroup vimrcEx
+au!
 
-  augroup END
+" For all text files set 'textwidth' to 78 characters.
+autocmd FileType text setlocal textwidth=78
+
+augroup END
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " don't autocomment next line after setting comment
 
@@ -64,4 +65,4 @@ set relativenumber " always display relative line numbers
 
 set modelines=0 " security hole!
 
-set wildmenu " nice completion
+set wildmenu    " nice completion
