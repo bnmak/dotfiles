@@ -5,7 +5,6 @@ fpath=(~/.zshCompletion $fpath)
 autoload -Uz promptinit && promptinit
 autoload -U colors && colors
 zmodload zsh/complist
-export LS_COLORS=$LS_COLORS:'ow=35;40'
 
 # make sure colors look nice
 export TERM=screen-256color
