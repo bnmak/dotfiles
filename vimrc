@@ -1,6 +1,9 @@
 " This must be first, because it changes other options as a side effect
 set nocompatible
+
 nnoremap <BS> x " this key got fucked up somehow
+
+set hidden " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file using :e, without being forced to write or undo your changes first. Also, undo buffers and marks are preserved while the buffer is open.
 
 " color stuff
 set t_Co=256
@@ -55,8 +58,6 @@ set visualbell " don't beep
 " status line stuff
 set laststatus=2
 set statusline=[%n]\ %<%F\ \ \ [%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \ 
-
-set runtimepath^=~/.vim/bundle/ctrlp.vim " nice completions
 
 set backupdir=~/.vimbackup  " change backup and swap
 set directory=~/.vimswap    " storage locations
