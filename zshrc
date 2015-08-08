@@ -1,13 +1,10 @@
-# custom path
-fpath=(~/.zshCompletion $fpath)
-
 # Set up the prompt and color system
 autoload -Uz promptinit && promptinit
 autoload -U colors && colors
 zmodload zsh/complist
-
-# make sure colors look nice
 export TERM=screen-256color
+
+# most is nice
 export PAGER=most
 
 # a nice prompt on the left: current directory in red
@@ -28,10 +25,12 @@ alias more=most
 export EDITOR="vim"
 export GREP_OPTIONS='--color=auto'
 
-# Load stuff from external scripts
+# Load other stuff from external scripts
 source /home/brian/.zshPlugins/colored-man.plugin.zsh # colored man pages
 source /home/brian/.zshPlugins/history.zsh # Set up history
 source /home/brian/.zshPlugins/zsh-syntax-highlighting.zsh # syntax highlighting
+source /usr/share/autojump/autojump.zsh # nice directory changing
+source /home/brian/.zshPlugins/command-not-found.zsh # suggests app to install if command fails
 
 # initialize help system
 autoload -U run-help
@@ -40,6 +39,7 @@ alias help=run-help
 # options
 setopt auto_cd # cd by typing directory name
 setopt extendedglob # nicer wildcards
+setopt completealiases # complete switches for aliases
 
 # Completion setup
 autoload -Uz compinit && compinit
