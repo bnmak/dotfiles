@@ -1,18 +1,18 @@
 # Set up the prompt and color system
 autoload -Uz promptinit && promptinit
 autoload -U colors && colors
-zmodload zsh/complist
 export TERM=screen-256color
+
+# prompts: left shows current directory in red, right shows current git stuff
+PROMPT="%B%{$fg[red]%}%~ > %b%{$reset_color%}"       
+setopt prompt_subst
+source ~/.zshPlugins/git_prompt.zsh
+
+# load completion system
+zmodload zsh/complist
 
 # most is nice
 export PAGER=most
-
-# a nice prompt on the left: current directory in red
-PROMPT="%B%{$fg[red]%}%~ > %b%{$reset_color%}"
-
-# right-side prompt shows current git stuff
-setopt prompt_subst
-source ~/.zshPlugins/git_prompt.zsh
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
@@ -36,12 +36,12 @@ source /home/brian/.zshPlugins/command-not-found.zsh # suggests app to install i
 autoload -U run-help
 alias help=run-help
 
-# options
+# other options
 setopt auto_cd # cd by typing directory name
 setopt extendedglob # nicer wildcards
 setopt completealiases # complete switches for aliases
 
-# Completion setup
+# Completion configuration
 autoload -Uz compinit && compinit
 setopt correct
 setopt correct_all
