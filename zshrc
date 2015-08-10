@@ -1,7 +1,7 @@
 # Set up the prompt and color system
 autoload -Uz promptinit && promptinit
 autoload -U colors && colors
-export TERM=screen-256color
+# export TERM=screen-256color
 
 # prompts: left shows current directory in red, right shows current git stuff
 PROMPT="%B%{$fg[red]%}%~ > %b%{$reset_color%}"       

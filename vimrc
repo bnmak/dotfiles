@@ -34,6 +34,8 @@ set showmatch " show matching parens
 set smartcase " ignore case when searching if pattern is all lowercase, otherwise case-sensitive
 set visualbell " don't beep
 set autoread " reload file when changed outside of vim
+set mps+=<:>     " also match these when using % to jump between       
+
 filetype plugin indent on
 
 " Put these in an autocmd group, so that we can delete them easily.
