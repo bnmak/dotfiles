@@ -44,7 +44,6 @@ setopt completealiases # complete switches for aliases
 # Completion configuration
 autoload -Uz compinit && compinit
 setopt correct
-setopt correct_all
 setopt always_to_end
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
