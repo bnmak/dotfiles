@@ -15,59 +15,42 @@ colorscheme solarized
 call pathogen#helptags()
 call pathogen#infect()
 
-" tab is four spaces
-set tabstop=4
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
+" general configuration options
+set backspace=indent,eol,start " allow backspacing over everything
 set encoding=utf8	  " explains itself
-
 set backup		      " keep a backup file
-
+set tabstop=4         " tab is four spaces
 set history=50		  " keep 50 lines of command line history
 set ruler		      " show the cursor position all the time
 set showcmd		      " display incomplete commands
 set incsearch		  " do incremental searching
 set nohlsearch        " do not highlight search terms
-
-" Enable file type detection.
-" Use the default filetype settings, so that mail gets 'tw' set to 72,
-" 'cindent' is on in C files, etc.
-" Also load indent files, to automatically do language-dependent indenting.
-
+set backupdir=~/.vimbackup  " change backup and swap storage locations
+set directory=~/.vimswap
+set relativenumber " always display relative line numbers
+set modelines=0 " security hole!
+set wildmenu    " nice completion                                     
+set showmatch " show matching parens
+set smartcase " ignore case when searching if pattern is all lowercase, otherwise case-sensitive
+set visualbell " don't beep
+set autoread " reload file when changed outside of vim
 filetype plugin indent on
 
 " Put these in an autocmd group, so that we can delete them easily.
-augroup vimrcEx
-au!
+	augroup vimrcEx
+	au!
 
-" For all text files set 'textwidth' to 78 characters.
-autocmd FileType text setlocal textwidth=78
-
+	" For all text files set 'textwidth' to 78 characters.
+	autocmd FileType text setlocal textwidth=78
 augroup END
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " don't autocomment next line after setting comment
-
-set showmatch " show matching parens
-
-set smartcase " ignore case when searching if pattern is all lowercase, otherwise case-sensitive
-
-set visualbell " don't beep
 
 " status line stuff
 set laststatus=2
 set statusline=[%n]\ %<%F\ \ \ [%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \ 
 
-set backupdir=~/.vimbackup  " change backup and swap
-set directory=~/.vimswap    " storage locations
-
-set relativenumber " always display relative line numbers
-
-set modelines=0 " security hole!
-
-set wildmenu    " nice completion
-
 hi StatusLine ctermbg=white ctermfg=black " nicer looking status line
 
-set runtimepath^=~/.vim/bundle/ctrlp.vim " CtrlP seems nice
+" CtrlP seems nice
+set runtimepath^=~/.vim/bundle/ctrlp.vim
