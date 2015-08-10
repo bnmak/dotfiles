@@ -1,7 +1,7 @@
 " This must be first, because it changes other options as a side effect
 set nocompatible
 
-nnoremap <BS> x " this key got fucked up somehow
+"nnoremap <BS> x " this key got fucked up somehow
 
 set hidden " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file using :e, without being forced to write or undo your changes first. Also, undo buffers and marks are preserved while the buffer is open.
 
@@ -67,3 +67,7 @@ set relativenumber " always display relative line numbers
 set modelines=0 " security hole!
 
 set wildmenu    " nice completion
+
+hi StatusLine ctermbg=white ctermfg=black
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
