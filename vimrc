@@ -25,7 +25,7 @@ set showcmd		      " display incomplete commands
 set incsearch		  " do incremental searching
 set nohlsearch        " do not highlight search terms
 set backupdir=~/.vimbackup  " change backup and swap storage locations
-set directory=~/.vimswap
+set directory=~/tmp
 set relativenumber " always display relative line numbers
 set modelines=0 " security hole!
 set wildmenu    " nice completion                                     
