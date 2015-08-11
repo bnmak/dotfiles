@@ -1,8 +1,6 @@
 " This must be first, because it changes other options as a side effect
 set nocompatible
 
-"nnoremap <BS> x " this key got fucked up somehow
-
 set hidden " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file using :e, without being forced to write or undo your changes first. Also, undo buffers and marks are preserved while the buffer is open.
 
 " color stuff
@@ -24,16 +22,16 @@ set ruler		      " show the cursor position all the time
 set showcmd		      " display incomplete commands
 set incsearch		  " do incremental searching
 set nohlsearch        " do not highlight search terms
-set backupdir=~/.vimbackup  " change backup and swap storage locations
-set directory=~/tmp
-set relativenumber " always display relative line numbers
-set modelines=0 " security hole!
-set wildmenu    " nice completion                                     
-set showmatch " show matching parens
-set smartcase " ignore case when searching if pattern is all lowercase, otherwise case-sensitive
-set visualbell " don't beep
-set autoread " reload file when changed outside of vim
-set mps+=<:>     " also match these when using % to jump between       
+set backupdir=~/.vim/.backup  " backup location
+set directory=~/tmp   " swap file location
+set relativenumber    " always display relative line numbers
+set modelines=0       " security hole!
+set wildmenu          " nice completion                  
+set showmatch         " show matching parens
+set smartcase         " ignore case when searching if pattern is all lowercase, otherwise case-sensitive
+set visualbell        " don't beep
+set autoread          " reload file when changed outside of vim
+set mps+=<:>          " also match these when using % to jump between
 
 filetype plugin indent on
 
