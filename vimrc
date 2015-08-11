@@ -9,7 +9,6 @@ set hidden " It hides buffers instead of closing them. This means that you can h
 set t_Co=256
 syntax on
 set background=dark
-colorscheme solarized
 
 " pathogen stuff
 call pathogen#helptags()
