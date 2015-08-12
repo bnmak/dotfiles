@@ -29,7 +29,6 @@ export GREP_OPTIONS='--color=auto'
 source /home/brian/.zshPlugins/colored-man.plugin.zsh # colored man pages
 source /home/brian/.zshPlugins/history.zsh # Set up history
 source /home/brian/.zshPlugins/zsh-syntax-highlighting.zsh # syntax highlighting
-source /usr/share/autojump/autojump.zsh # nice directory changing
 source /home/brian/.zshPlugins/command-not-found.zsh # suggests app to install if command fails
 
 # initialize help system
