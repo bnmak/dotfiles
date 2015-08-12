@@ -50,6 +50,3 @@ set laststatus=2
 set statusline=[%n]\ %<%F\ \ \ [%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \ 
 
 hi StatusLine ctermbg=white ctermfg=black " nicer looking status line
-
-" CtrlP seems nice
-set runtimepath^=~/.vim/bundle/ctrlp.vim
