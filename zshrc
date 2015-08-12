@@ -1,5 +1,3 @@
-if [ "$TMUX" = "" ]; then tmux ; fi
-
 # Set up the prompt and color system
 autoload -Uz promptinit && promptinit
 autoload -U colors && colors
