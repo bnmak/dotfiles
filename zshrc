@@ -30,6 +30,7 @@ source /home/brian/.zshPlugins/colored-man.plugin.zsh # colored man pages
 source /home/brian/.zshPlugins/history.zsh # Set up history
 source /home/brian/.zshPlugins/zsh-syntax-highlighting.zsh # syntax highlighting
 source /home/brian/.zshPlugins/command-not-found.zsh # suggests app to install if command fails
+source /home/brian/.zshPlugins/dirstack.zsh # config directory stack
 
 # initialize help system
 autoload -U run-help
@@ -73,3 +74,10 @@ bindkey '\ex' undefined-key # free key up for tmux
 bindkey '^w' backward-kill-word
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+
+# Use ctrl-z to toggle back into suspended vim
+foreground-vi() {
+	fg %vi
+}
+zle -N foreground-vi
+bindkey '^Z' foreground-vi
