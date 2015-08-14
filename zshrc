@@ -71,7 +71,6 @@ bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
 
 bindkey '\e.' insert-last-word # alt-. inserts the last word from the previous history event at the cursor position
-bindkey '\ex' undefined-key # free key up for tmux
 bindkey '^w' backward-kill-word
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
