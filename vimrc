@@ -25,7 +25,8 @@ set incsearch		  " do incremental searching
 set nohlsearch        " do not highlight search terms
 set backupdir=~/.vim/.backup  " backup location
 set directory=~/tmp   " swap file location
-set relativenumber    " always display relative line numbers
+set number            " always display line numbers
+highlight LineNr ctermfg=grey
 set modelines=0       " security hole!
 set wildmenu          " nice completion                  
 set showmatch         " show matching parens
@@ -49,5 +50,11 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o "
 " status line stuff
 set laststatus=2
 set statusline=[%n]\ %<%F\ \ \ [%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \ 
+highlight StatusLine ctermbg=white ctermfg=black " nicer looking status line
 
-hi StatusLine ctermbg=white ctermfg=black " nicer looking status line
+" easymotion stuff
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+let g:EasyMotion_smartcase = 1
