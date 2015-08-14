@@ -8,9 +8,6 @@ PROMPT="%B%{$fg[red]%}%~ > %b%{$reset_color%}"
 setopt prompt_subst
 source ~/.zshPlugins/git_prompt.zsh
 
-# load completion system
-zmodload zsh/complist
-
 # most is nice
 export PAGER=most
 
@@ -43,6 +40,7 @@ setopt extendedglob # nicer wildcards
 setopt completealiases # complete switches for aliases
 
 # Completion configuration
+zmodload zsh/complist
 autoload -Uz compinit && compinit
 setopt correct
 setopt always_to_end
