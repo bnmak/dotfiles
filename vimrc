@@ -18,6 +18,7 @@ set backspace=indent,eol,start " allow backspacing over everything
 set encoding=utf8	  " explains itself
 set backup		      " keep a backup file
 set tabstop=4         " tab is four spaces
+set shiftwidth=4	  " autoinsert tab is small
 set history=50		  " keep 50 lines of command line history
 set ruler		      " show the cursor position all the time
 set showcmd		      " display incomplete commands
@@ -26,6 +27,7 @@ set nohlsearch        " do not highlight search terms
 set backupdir=~/.vim/.backup  " backup location
 set directory=~/tmp   " swap file location
 set number            " always display line numbers
+set numberwidth=3
 highlight LineNr ctermfg=grey
 set modelines=0       " security hole!
 set wildmenu          " nice completion                  
