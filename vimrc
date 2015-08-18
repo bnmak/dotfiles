@@ -19,6 +19,7 @@ set encoding=utf8	  " explains itself
 set backup		      " keep a backup file
 set tabstop=4         " tab is four spaces
 set shiftwidth=4	  " autoinsert tab is small
+set smarttab		  " start of line tabs based on shiftwidth
 set history=50		  " keep 50 lines of command line history
 set ruler		      " show the cursor position all the time
 set showcmd		      " display incomplete commands
@@ -53,6 +54,10 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o "
 set laststatus=2
 set statusline=[%n]\ %<%F\ \ \ [%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \ 
 highlight StatusLine ctermbg=white ctermfg=black " nicer looking status line
+
+" remap leader
+
+let mapleader=","
 
 " easymotion stuff
 map <Leader>l <Plug>(easymotion-lineforward)
