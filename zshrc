@@ -62,7 +62,15 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 zstyle -e ':completion:*' hosts 'reply=()'
 
-fignore=(\~) #ignore these extensions during completiom
+#
+# Ignore specific filetypes for certain programs
+# Exact instructions here:
+# http://unix.stackexchange.com/questions/230742/bash-zsh-tab-autocomplete-given-initial-command-ignore-certain-files-in-direct
+
+# Here, with vim, ignore .(aux|log|pdf) files
+zstyle ':completion:*:*:vim:*' file-patterns '^*.(aux|log|pdf):source-files' '*:all-files'
+
+fignore=(\~) #ignore these extensions during completion
 
 # Enable Ctrl-x-e to edit command line
 autoload -U edit-command-line
