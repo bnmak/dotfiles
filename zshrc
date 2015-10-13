@@ -22,7 +22,8 @@ alias dirs='dirs -v'
 # setup environment stuff
 export EDITOR="vim"
 export GREP_OPTIONS='--color=auto'
-export GOPATH="/home/brian/gocode/"
+export GOPATH="/home/brian/gocode"
+export PATH="$GOPATH:$PATH"
 fpath=(~/.zshCompletions $fpath)
 
 # Load other stuff from external scripts
