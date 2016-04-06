@@ -18,6 +18,8 @@ bindkey -e
 alias ls='ls -GFhl --literal --color=auto --hide-control-chars --group-directories-first'
 alias more=most
 alias dirs='dirs -v'
+alias weather(){ curl -s "http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=${@:-<YOURZIPORLOCATION>}"|perl -ne '/<title>([^<]+)/&&printf "%s: ",$1;/<fcttext>([^<]+)/&&print $1,"\n"';} # Command line weather lookup
+
 
 # setup environment stuff
 export EDITOR="vim"
