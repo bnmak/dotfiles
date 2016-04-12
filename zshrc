@@ -18,8 +18,6 @@ bindkey -e
 alias ls='ls -GFhl --literal --color=auto --hide-control-chars --group-directories-first'
 alias more=most
 alias dirs='dirs -v'
-alias weather(){ curl -s "http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=${@:-<YOURZIPORLOCATION>}"|perl -ne '/<title>([^<]+)/&&printf "%s: ",$1;/<fcttext>([^<]+)/&&print $1,"\n"';} # Command line weather lookup
-
 
 # setup environment stuff
 export EDITOR="vim"
@@ -31,7 +29,7 @@ fpath=(~/.zshCompletions $fpath)
 # Load other stuff from external scripts
 source /home/brian/.zshPlugins/colored-man.plugin.zsh # colored man pages
 source /home/brian/.zshPlugins/history.zsh # Set up history
-source /home/brian/.zshPlugins/zsh-syntax-highlighting.zsh # syntax highlighting
+# source /home/brian/.zshPlugins/zsh-syntax-highlighting.zsh # syntax highlighting
 source /home/brian/.zshPlugins/command-not-found.zsh # suggests app to install if command fails
 source /home/brian/.zshPlugins/dirstack.zsh # config directory stack
 
@@ -85,7 +83,7 @@ bindkey '^x^e' edit-command-line
 bindkey '\e.' insert-last-word # alt-. inserts the last word from the previous history event at the cursor position
 bindkey '^w' backward-kill-word
 
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+# ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
 # Use ctrl-z to toggle back into suspended vim
 foreground-vi() {
