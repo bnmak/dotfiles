@@ -58,11 +58,3 @@ highlight StatusLine ctermbg=white ctermfg=black " nicer looking status line
 " remap leader
 
 let mapleader=","
-
-" easymotion stuff
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
-let g:EasyMotion_smartcase = 1
-nmap s <Plug>(easymotion-s) " search for 1 character
