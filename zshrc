@@ -29,7 +29,7 @@ fpath=(~/.zshCompletions $fpath)
 # Load other stuff from external scripts
 source /home/brian/.zshPlugins/colored-man.plugin.zsh # colored man pages
 source /home/brian/.zshPlugins/history.zsh # Set up history
-# source /home/brian/.zshPlugins/zsh-syntax-highlighting.zsh # syntax highlighting
+source /home/brian/git/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # syntax highlighting
 source /home/brian/.zshPlugins/command-not-found.zsh # suggests app to install if command fails
 source /home/brian/.zshPlugins/dirstack.zsh # config directory stack
 
@@ -83,7 +83,8 @@ bindkey '^x^e' edit-command-line
 bindkey '\e.' insert-last-word # alt-. inserts the last word from the previous history event at the cursor position
 bindkey '^w' backward-kill-word
 
-# ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 
 # Use ctrl-z to toggle back into suspended vim
 foreground-vi() {
