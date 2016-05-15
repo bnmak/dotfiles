@@ -16,6 +16,7 @@ call pathogen#infect()
 " general configuration options
 set backspace=indent,eol,start " allow backspacing over everything
 set encoding=utf8	  " explains itself
+set ffs=unix,dos,mac  " set Unix as standard filetype
 set backup		      " keep a backup file
 set tabstop=4         " tab is four spaces
 set shiftwidth=4	  " autoinsert tab is small
@@ -27,9 +28,6 @@ set incsearch		  " do incremental searching
 set nohlsearch        " do not highlight search terms
 set backupdir=~/.vim/.backup  " backup location
 set directory=~/tmp   " swap file location
-set number            " always display line numbers
-set numberwidth=3
-highlight LineNr ctermfg=grey
 set modelines=0       " security hole!
 set wildmenu          " nice completion                  
 set showmatch         " show matching parens
@@ -38,23 +36,39 @@ set visualbell        " don't beep
 set autoread          " reload file when changed outside of vim
 set mps+=<:>          " also match these when using % to jump between
 
-filetype plugin indent on
+filetype plugin on
+filetype indent on
 
-" Put these in an autocmd group, so that we can delete them easily.
-	augroup vimrcEx
-	au!
+" line number stuff
+set relativenumber
+set number
+set numberwidth=3
+highlight LineNr ctermfg=grey
 
-	" For all text files set 'textwidth' to 78 characters.
-	autocmd FileType text setlocal textwidth=78
-augroup END
+" for all text files set 'textwidth' to 78 characters.
+autocmd FileType text setlocal textwidth=78
 
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " don't autocomment next line after setting comment
+" don't autocomment next line after setting comment
+autocmd FileType * setlocal formatoptions-=cro " formatoptions-=r formatoptions-=o 
 
-" status line stuff
+" format, color, and distinguish between current and noncurrent window
 set laststatus=2
 set statusline=[%n]\ %<%F\ \ \ [%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \ 
-highlight StatusLine ctermbg=white ctermfg=black " nicer looking status line
+highlight StatusLine ctermbg=white ctermfg=black
+highlight StatusLineNC ctermbg=black ctermfg=black
 
 " remap leader
-
 let mapleader=","
+let g:mapleader=","
+nmap <leader>w :w! " save faster
+
+" NERDTree stuff
+map <F2> :NERDTreeToggle<CR> " explains itself
+let NERDTreeShowHidden = 1
+let NERDTreeQuitOnOpen = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeHijackNetrw = 1
+let NERDTreeAutoDeleteBuffer = 1
+
+" close the current buffer
+map <leader>bd :Bclose<cr>
