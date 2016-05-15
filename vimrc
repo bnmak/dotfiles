@@ -55,15 +55,15 @@ autocmd FileType * setlocal formatoptions-=cro " formatoptions-=r formatoptions-
 set laststatus=2
 set statusline=[%n]\ %<%F\ \ \ [%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \ 
 highlight StatusLine ctermbg=white ctermfg=black
-highlight StatusLineNC ctermbg=black ctermfg=black
+highlight StatusLineNC ctermbg=LightGrey ctermfg=black
 
 " remap leader
 let mapleader=","
 let g:mapleader=","
-nmap <leader>w :w! " save faster
+nmap <leader>w :w!<cr> " save faster
 
 " NERDTree stuff
-map <F2> :NERDTreeToggle<CR> " explains itself
+nmap <F2> :NERDTreeToggle<CR> " explains itself
 let NERDTreeShowHidden = 1
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
@@ -71,4 +71,4 @@ let NERDTreeHijackNetrw = 1
 let NERDTreeAutoDeleteBuffer = 1
 
 " close the current buffer
-map <leader>bd :Bclose<cr>
+nmap <leader>bd :Bclose<cr>
