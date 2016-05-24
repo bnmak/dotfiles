@@ -83,3 +83,13 @@ noremap <Right> <NOP>
 " use ctrl-a/ctrl-e to jump to beginning/end of line in insert mode
 inoremap <C-a> <C-o>0
 inoremap <C-e> <C-o>$
+
+" set up CtrlP
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+if executable('ag')
+	let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'c'
