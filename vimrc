@@ -72,3 +72,14 @@ let NERDTreeAutoDeleteBuffer = 1
 
 " close the current buffer
 nmap <leader>bd :Bclose<cr>
+
+" disable arrow keys in normal mode
+noremap <Up>    <NOP>
+noremap <Down>  <NOP>
+noremap <Left>  <NOP>
+noremap <Right> <NOP>
+
+" more bindings
+" use ctrl-a/ctrl-e to jump to beginning/end of line in insert mode
+inoremap <C-a> <C-o>0
+inoremap <C-e> <C-o>$
