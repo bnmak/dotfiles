@@ -30,10 +30,10 @@ set backupdir=~/.vim/.backup  " backup location
 set directory=~/tmp   " swap file location
 set modelines=0       " security hole!
 set wildmenu          " nice completion                  
+set wildmode=longest,list,full " configure this menu
 set showmatch         " show matching parens
 set smartcase         " ignore case when searching if pattern is all lowercase, otherwise case-sensitive
 set visualbell        " don't beep
-set autoread          " reload file when changed outside of vim
 set mps+=<:>          " also match these when using % to jump between
 
 filetype plugin on
@@ -54,32 +54,8 @@ autocmd FileType * setlocal formatoptions-=cro " formatoptions-=r formatoptions-
 " format, color, and distinguish between current and noncurrent window
 set laststatus=2
 set statusline=[%n]\ %<%F\ \ \ [%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \ 
-highlight StatusLine ctermbg=white ctermfg=black
-highlight StatusLineNC ctermbg=LightGrey ctermfg=black
+highlight StatusLine ctermbg=black ctermfg=blue
+highlight StatusLineNC ctermbg=black ctermfg=grey
 
-" remap leader
-let mapleader=","
-let g:mapleader=","
-nmap <leader>w :w!<cr> " save faster
-
-" NERDTree stuff
-nmap <F2> :NERDTreeToggle<CR> " explains itself
-let NERDTreeShowHidden = 1
-let NERDTreeQuitOnOpen = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeHijackNetrw = 1
-let NERDTreeAutoDeleteBuffer = 1
-
-" close the current buffer
-nmap <leader>bd :Bclose<cr>
-
-" disable arrow keys in normal mode
-noremap <Up>    <NOP>
-noremap <Down>  <NOP>
-noremap <Left>  <NOP>
-noremap <Right> <NOP>
-
-" more bindings
-" use ctrl-a/ctrl-e to jump to beginning/end of line in insert mode
-inoremap <C-a> <C-o>0
-inoremap <C-e> <C-o>$
+source ~/.vim/bindings.vim " store bindings elsewhere
+source ~/.vim/vextoggle.vim " not sure that this works right
