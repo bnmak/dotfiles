@@ -4,7 +4,7 @@ set nocompatible
 set hidden " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file using :e, without being forced to write or undo your changes first. Also, undo buffers and marks are preserved while the buffer is open.
 
 " color stuff
-set t_Co=256
+"set t_Co=256
 syntax on
 set background=dark
 colorscheme ron
@@ -59,6 +59,8 @@ set laststatus=2
 "set statusline+=[%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \
 "highlight StatusLine ctermbg=black ctermfg=blue
 "highlight StatusLineNC ctermbg=black ctermfg=grey
+
+let g:netrw_liststyle = 3
 
 source ~/.vim/bindings.vim
 source ~/.vim/airlineconfig.vim
