@@ -4,7 +4,7 @@ autoload -U colors && colors
 export TERM=screen-256color
 
 # prompts: left shows current directory in red, right shows current git stuff
-PROMPT="%B%{$fg[red]%}%~ > %b%{$reset_color%}"       
+PROMPT="%B%{$fg[red]%}%~ > %b%{$reset_color%}"
 setopt prompt_subst
 source ~/.zshPlugins/git_prompt.zsh
 
@@ -40,13 +40,16 @@ alias help=run-help
 # other options
 setopt auto_cd # cd by typing directory name
 setopt extendedglob # nicer wildcards
-setopt completealiases # complete switches for aliases
+setopt hash_list_all
+setopt mark_dirs
 
 # Completion configuration
 zmodload zsh/complist
 autoload -Uz compinit && compinit
 setopt correct
 setopt always_to_end
+setopt completealiases # complete switches for aliases
+setopt nomatch
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' group-name ''
@@ -55,7 +58,6 @@ eval "$(dircolors -b ~/.dircolors)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-#zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=* l:|=*'
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' use-compctl false
@@ -64,23 +66,20 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 zstyle -e ':completion:*' hosts 'reply=()'
 
-#
 # Ignore specific filetypes for certain programs
 # Exact instructions here:
 # http://unix.stackexchange.com/questions/230742/bash-zsh-tab-autocomplete-given-initial-command-ignore-certain-files-in-direct
-
 # Here, with vim, ignore .(aux|log|pdf) files
 zstyle ':completion:*:*:vim:*' file-patterns '^*.(aux|log|pdf):source-files' '*:all-files'
 
 fignore=(\~) #ignore these extensions during completion
 
-# Enable Ctrl-x-e to edit command line
+# Command-line editing
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
-
-bindkey '\e.' insert-last-word # alt-. inserts the last word from the previous history event at the cursor position
+bindkey '\e.' insert-last-word
 bindkey '^w' backward-kill-word
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)

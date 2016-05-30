@@ -29,7 +29,7 @@ set nohlsearch        " do not highlight search terms
 set backupdir=~/.vim/.backup  " backup location
 set directory=~/tmp   " swap file location
 set modelines=0       " security hole!
-set wildmenu          " nice completion                  
+set wildmenu          " nice completion
 set wildmode=longest,list,full " configure this menu
 set showmatch         " show matching parens
 set smartcase         " ignore case when searching if pattern is all lowercase, otherwise case-sensitive
@@ -49,13 +49,16 @@ highlight LineNr ctermfg=grey
 autocmd FileType text setlocal textwidth=78
 
 " don't autocomment next line after setting comment
-autocmd FileType * setlocal formatoptions-=cro " formatoptions-=r formatoptions-=o 
+autocmd FileType * setlocal formatoptions-=cro
 
 " format, color, and distinguish between current and noncurrent window
 set laststatus=2
-set statusline=[%n]\ %<%F\ \ \ [%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \ 
-highlight StatusLine ctermbg=black ctermfg=blue
-highlight StatusLineNC ctermbg=black ctermfg=grey
+"set statusline=[%n] " buffer number
+"set statusline+=\ " seperator
+"set statusline+=%<%F\ \ \ " filename
+"set statusline+=[%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \
+"highlight StatusLine ctermbg=black ctermfg=blue
+"highlight StatusLineNC ctermbg=black ctermfg=grey
 
-source ~/.vim/bindings.vim " store bindings elsewhere
-source ~/.vim/vextoggle.vim " not sure that this works right
+source ~/.vim/bindings.vim
+source ~/.vim/airlineconfig.vim
