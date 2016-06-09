@@ -4,14 +4,16 @@ set nocompatible
 set hidden " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file using :e, without being forced to write or undo your changes first. Also, undo buffers and marks are preserved while the buffer is open.
 
 " color stuff
-"set t_Co=256
 syntax on
 set background=dark
-colorscheme ron
+set term=screen-256color
+let g:solarlized_termcolors=256
+colorscheme solarized
 
 " pathogen stuff
 call pathogen#helptags()
 call pathogen#infect()
+execute pathogen#infect('bundle.remote/{}')
 
 " general configuration options
 set backspace=indent,eol,start " allow backspacing over everything
@@ -51,16 +53,18 @@ autocmd FileType text setlocal textwidth=78
 " don't autocomment next line after setting comment
 autocmd FileType * setlocal formatoptions-=cro
 
-" format, color, and distinguish between current and noncurrent window
+" status line always on
 set laststatus=2
-"set statusline=[%n] " buffer number
-"set statusline+=\ " seperator
-"set statusline+=%<%F\ \ \ " filename
-"set statusline+=[%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \
-"highlight StatusLine ctermbg=black ctermfg=blue
-"highlight StatusLineNC ctermbg=black ctermfg=grey
+set statusline=[%n] " buffer number
+set statusline+=\ " seperator
+set statusline+=%<%F\ \ \ " filename
+set statusline+=[%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \
+highlight StatusLine ctermbg=black ctermfg=blue
+highlight StatusLineNC ctermbg=black ctermfg=grey
 
+" make netrw look like correct things
 let g:netrw_liststyle = 3
 
+" store some stuff externally
 source ~/.vim/bindings.vim
 source ~/.vim/airlineconfig.vim

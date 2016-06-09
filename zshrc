@@ -1,30 +1,14 @@
 # Set up the prompt and color system
 autoload -Uz promptinit && promptinit
 autoload -U colors && colors
-export TERM=screen-256color
 
-# prompts: left shows current directory in red, right shows current git stuff
-PROMPT="%B%{$fg[red]%}%~ > %b%{$reset_color%}"
+# prompts: left shows current directory in blue, right shows current git stuff
+PROMPT="%B%{$fg[blue]%}%~ > %b%{$reset_color%}"
 setopt prompt_subst
 source ~/.zshPlugins/git_prompt.zsh
 
-# most is nice
-export PAGER=most
-
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
-
-# nice aliases
-alias ls='ls -GFhl --literal --color=auto --hide-control-chars --group-directories-first'
-alias more=most
-alias dirs='dirs -v'
-
-# setup environment stuff
-export EDITOR="vim"
-export GREP_OPTIONS='--color=auto'
-export GOPATH="/home/brian/gocode"
-export PATH="$GOPATH:$PATH"
-fpath=(~/.zshCompletions $fpath)
 
 # Load other stuff from external scripts
 source /home/brian/.zshPlugins/colored-man.plugin.zsh # colored man pages
