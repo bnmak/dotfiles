@@ -33,6 +33,7 @@ autoload -Uz compinit && compinit
 setopt correct
 setopt always_to_end
 setopt completealiases # complete switches for aliases
+setopt complete_in_word
 setopt nomatch
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate

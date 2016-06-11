@@ -19,5 +19,3 @@ fpath=(~/.zshCompletions $fpath)
 alias ls='ls -GFhl --literal --color=auto --hide-control-chars --group-directories-first'
 alias more=most
 alias dirs='dirs -v'
-
-
