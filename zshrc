@@ -35,20 +35,22 @@ setopt always_to_end
 setopt completealiases # complete switches for aliases
 setopt complete_in_word
 setopt nomatch
+eval "$(dircolors -b ~/.dircolors)"
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=20
-eval "$(dircolors -b ~/.dircolors)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle -e ':completion:*' hosts 'reply=()'
 
 # Ignore specific filetypes for certain programs
