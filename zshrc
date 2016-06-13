@@ -2,8 +2,10 @@
 autoload -Uz promptinit && promptinit
 autoload -U colors && colors
 
-# prompts: left shows current directory in blue, right shows current git stuff
-PROMPT="%B%{$fg[blue]%}%~ > %b%{$reset_color%}"
+# prompts
+# the caret is blue if the previous command completed successfully, red otherwise. The quoted-out prompt is the original just in case I get bored.
+#PROMPT="%B%{$fg[blue]%}%~ > %b%{$reset_color%}"
+PROMPT="%B%{$fg[blue]%}%~ %B%(?.%{$fg[blue]%}.%{$fg[red]%})> %b%{$reset_color%}"
 setopt prompt_subst
 source ~/.zshPlugins/git_prompt.zsh
 
