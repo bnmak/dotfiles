@@ -7,17 +7,17 @@ autoload -U colors && colors
 #PROMPT="%B%{$fg[blue]%}%~ > %b%{$reset_color%}"
 setopt prompt_subst
 PROMPT="%B%{$fg[yellow]%}%~ %B%(?.%{$fg[yellow]%}.%{$fg[red]%})> %b%{$reset_color%}"
-source ~/.zshPlugins/git_prompt.zsh
+source ~/.zsh/git_prompt.zsh
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
 # Load other stuff from external scripts
-source /home/brian/.zshPlugins/colored-man.plugin.zsh # colored man pages
-source /home/brian/.zshPlugins/history.zsh # Set up history
-source /home/brian/git/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # syntax highlighting
-source /home/brian/.zshPlugins/command-not-found.zsh # suggests app to install if command fails
-source /home/brian/.zshPlugins/dirstack.zsh # config directory stack
+source /home/brian/.zsh/colored-man.plugin.zsh # colored man pages
+source /home/brian/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # syntax highlighting
+source /home/brian/.zsh/history.zsh # Set up history
+source /home/brian/.zsh/command-not-found.zsh # suggests app to install if command fails
+source /home/brian/.zsh/dirstack.zsh # config directory stack
 
 # initialize help system
 autoload -U run-help
