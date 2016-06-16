@@ -66,5 +66,7 @@ highlight StatusLineNC ctermbg=black ctermfg=grey
 let g:netrw_liststyle = 3
 
 " store some stuff externally
-source ~/.vim/bindings.vim
 source ~/.vim/airlineconfig.vim
+source ~/.vim/bindings.vim
+source ~/.vim/committiaconfig.vim
+" source ~/.vim/vimshellconfig.vim
