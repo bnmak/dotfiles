@@ -15,6 +15,7 @@ bindkey -e
 # Load other stuff from external scripts
 source /home/brian/.zsh/colored-man.plugin.zsh # colored man pages
 source /home/brian/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # syntax highlighting
+source /home/brian/.zsh/history-substring-search.zsh
 source /home/brian/.zsh/history.zsh # Set up history
 source /home/brian/.zsh/command-not-found.zsh # suggests app to install if command fails
 source /home/brian/.zsh/dirstack.zsh # config directory stack
@@ -40,6 +41,7 @@ setopt nomatch
 eval "$(dircolors -b ~/.dircolors)"
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
+zstyle ':completion:*' rehash true
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' group-name ''
@@ -80,3 +82,7 @@ foreground-vi() {
 }
 zle -N foreground-vi
 bindkey '^Z' foreground-vi
+
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
