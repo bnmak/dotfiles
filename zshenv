@@ -13,7 +13,7 @@ export EDITOR="vim"
 export GREP_OPTIONS='--color=auto'
 export GOPATH="/home/brian/gocode"
 export PATH="$HOME/.local/bin:$GOPATH:$PATH"
-fpath=(~/.zshCompletions $fpath)
+#fpath=(/.zsh/completions $fpath)
 
 # nice aliases
 alias ls='ls -GFhl --literal --color=auto --hide-control-chars --group-directories-first'
