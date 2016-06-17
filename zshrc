@@ -76,13 +76,6 @@ bindkey '^w' backward-kill-word
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 
-# Use ctrl-z to toggle back into suspended vim
-foreground-vi() {
-	fg %vi
-}
-zle -N foreground-vi
-bindkey '^Z' foreground-vi
-
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down

@@ -62,8 +62,9 @@ set statusline+=[%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \
 highlight StatusLine ctermbg=black ctermfg=blue
 highlight StatusLineNC ctermbg=black ctermfg=grey
 
-" make netrw look like correct things
+" make netrw be correct
 let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
 
 " store some stuff externally
 source ~/.vim/airlineconfig.vim
