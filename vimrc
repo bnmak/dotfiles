@@ -69,5 +69,6 @@ let g:netrw_browse_split = 4
 " store some stuff externally
 source ~/.vim/airlineconfig.vim
 source ~/.vim/bindings.vim
+source ~/.vim/bufferlineconfig.vim
 source ~/.vim/committiaconfig.vim
 " source ~/.vim/vimshellconfig.vim
