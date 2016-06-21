@@ -1,6 +1,3 @@
-" This must be first, because it changes other options as a side effect
-set nocompatible
-
 set hidden " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file using :e, without being forced to write or undo your changes first. Also, undo buffers and marks are preserved while the buffer is open.
 
 " color stuff
@@ -47,11 +44,13 @@ set number
 set numberwidth=3
 highlight LineNr ctermfg=grey
 
-" for all text files set 'textwidth' to 78 characters.
-autocmd FileType text setlocal textwidth=78
+augroup FileTypeStuff
+	" for all text files set 'textwidth' to 78 characters.
+	autocmd FileType text setlocal textwidth=78
 
-" don't autocomment next line after setting comment
-autocmd FileType * setlocal formatoptions-=cro
+	" don't autocomment next line after setting comment
+	autocmd FileType * setlocal formatoptions-=cro
+augroup END
 
 " status line always on
 set laststatus=2
@@ -65,10 +64,3 @@ highlight StatusLineNC ctermbg=black ctermfg=grey
 " make netrw be correct
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
-
-" store some stuff externally
-source ~/.vim/airlineconfig.vim
-source ~/.vim/bindings.vim
-source ~/.vim/bufferlineconfig.vim
-source ~/.vim/committiaconfig.vim
-" source ~/.vim/vimshellconfig.vim
