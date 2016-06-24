@@ -33,6 +33,7 @@ set wildmode=longest,list,full " configure this menu
 set showmatch         " show matching parens
 set smartcase         " ignore case when searching if pattern is all lowercase, otherwise case-sensitive
 set visualbell        " don't beep
+set nostartofline 	  " maintain horizontal position
 set mps+=<:>          " also match these when using % to jump between
 
 filetype plugin on
@@ -42,7 +43,6 @@ filetype indent on
 set relativenumber
 set number
 set numberwidth=3
-highlight LineNr ctermfg=grey
 
 augroup FileTypeStuff
 	" for all text files set 'textwidth' to 78 characters.
@@ -58,8 +58,6 @@ set statusline=[%n] " buffer number
 set statusline+=\ " seperator
 set statusline+=%<%F\ \ \ " filename
 set statusline+=[%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \
-highlight StatusLine ctermbg=black ctermfg=blue
-highlight StatusLineNC ctermbg=black ctermfg=grey
 
 " make netrw be correct
 let g:netrw_liststyle = 3
