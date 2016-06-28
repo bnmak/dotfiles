@@ -19,6 +19,7 @@ source /home/brian/.zsh/history-substring-search.zsh
 source /home/brian/.zsh/history.zsh # Set up history
 source /home/brian/.zsh/command-not-found.zsh # suggests app to install if command fails
 source /home/brian/.zsh/dirstack.zsh # config directory stack
+source /home/brian/.zsh/misc_stuff.zsh # misc items
 
 # initialize help system
 autoload -U run-help
@@ -81,3 +82,5 @@ bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
 autoload -U zmv # this is so nice
+
+autoload -U up # easier navigation
