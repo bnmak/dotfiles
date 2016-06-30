@@ -4,7 +4,7 @@ autoload -U colors && colors
 # The caret is yellow if the previous command completed successfully, red otherwise.
 setopt prompt_subst
 PROMPT='%B%{$fg[yellow]%}%~ %B%(?.%{$fg[yellow]%}.%{$fg[red]%})> %b%{$reset_color%}'
-source ~/.zsh/git_prompt.zsh
+# source ~/.zsh/git_prompt.zsh
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
@@ -79,5 +79,8 @@ bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
 autoload -U zmv # this is so nice
-
 autoload -U up # easier navigation
+
+source $HOME/git/antigen/antigen.zsh
+#antigen bundle arialdomartini/oh-my-git
+#antigen theme arialdomartini/oh-my-git-themes oppa-lana-style
