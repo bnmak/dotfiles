@@ -1,22 +1,25 @@
-# Set up the prompt
+# set up the prompt
 autoload -Uz promptinit && promptinit
 autoload -U colors && colors
-# The caret is yellow if the previous command completed successfully, red otherwise.
 setopt prompt_subst
 PROMPT='%B%{$fg[yellow]%}%~ %B%(?.%{$fg[yellow]%}.%{$fg[red]%})> %b%{$reset_color%}'
-# source ~/.zsh/git_prompt.zsh
+source ~/.zsh/git_prompt.zsh
 
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
+# load plugins
+source $HOME/git/antigen/antigen.zsh
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle robbyrussell/oh-my-zsh plugins/colored-man-pages
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle robbyrussell/oh-my-zsh plugins/command-not-found
+#antigen bundle arialdomartini/oh-my-git
+#antigen theme arialdomartini/oh-my-git-themes oppa-lana-style
+antigen apply
 
-# Load other stuff from external scripts
-source /home/brian/.zsh/colored-man.plugin.zsh # colored man pages
-source /home/brian/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # syntax highlighting
-source /home/brian/.zsh/history-substring-search.zsh
-source /home/brian/.zsh/history.zsh # Set up history
-source /home/brian/.zsh/command-not-found.zsh # suggests app to install if command fails
-source /home/brian/.zsh/dirstack.zsh # config directory stack
-source /home/brian/.zsh/misc_stuff.zsh # misc items
+# load other stuff from external scripts
+source $HOME/.zsh/history.zsh
+source $HOME/.zsh/dirstack.zsh
+source $HOME/.zsh/misc_stuff.zsh
+source $HOME/.zsh/bindings.zsh
 
 # initialize help system
 autoload -U run-help
@@ -28,7 +31,7 @@ setopt extendedglob # nicer wildcards
 setopt hash_list_all
 setopt mark_dirs
 
-# Completion configuration
+# completion configuration
 zmodload zsh/complist
 autoload -Uz compinit && compinit
 setopt correct
@@ -63,24 +66,8 @@ zstyle ':completion:*:*:vim:*' file-patterns '^*.(aux|log|pdf):source-files' '*:
 
 fignore=(\~) #ignore these extensions during completion
 
-# Command-line editing
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '^xe' edit-command-line
-bindkey '^x^e' edit-command-line
-bindkey '\e.' insert-last-word
-bindkey '^w' backward-kill-word
-
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 
-zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-
 autoload -U zmv # this is so nice
 autoload -U up # easier navigation
-
-source $HOME/git/antigen/antigen.zsh
-#antigen bundle arialdomartini/oh-my-git
-#antigen theme arialdomartini/oh-my-git-themes oppa-lana-style
