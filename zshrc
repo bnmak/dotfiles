@@ -1,8 +1,6 @@
-# Set up the prompt and color system
+# Set up the prompt
 autoload -Uz promptinit && promptinit
 autoload -U colors && colors
-
-# prompts
 # The caret is yellow if the previous command completed successfully, red otherwise. The quoted-out prompt is the original just in case I get bored.
 #PROMPT="%B%{$fg[blue]%}%~ > %b%{$reset_color%}"
 setopt prompt_subst
