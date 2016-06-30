@@ -1,10 +1,9 @@
 # Set up the prompt
 autoload -Uz promptinit && promptinit
 autoload -U colors && colors
-# The caret is yellow if the previous command completed successfully, red otherwise. The quoted-out prompt is the original just in case I get bored.
-#PROMPT="%B%{$fg[blue]%}%~ > %b%{$reset_color%}"
+# The caret is yellow if the previous command completed successfully, red otherwise.
 setopt prompt_subst
-PROMPT="%B%{$fg[yellow]%}%~ %B%(?.%{$fg[yellow]%}.%{$fg[red]%})> %b%{$reset_color%}"
+PROMPT='%B%{$fg[yellow]%}%~ %B%(?.%{$fg[yellow]%}.%{$fg[red]%})> %b%{$reset_color%}'
 source ~/.zsh/git_prompt.zsh
 
 # Use emacs keybindings even if our EDITOR is set to vi
