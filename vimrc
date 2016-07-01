@@ -1,7 +1,7 @@
 set nocompatible
-set hidden " It hides buffers instead of closing them. This means that you can have unwritten changes to a file and open a new file using :e, without being forced to write or undo your changes first. Also, undo buffers and marks are preserved while the buffer is open.
+set hidden
 
-" color stuff
+" color
 syntax on
 set background=dark
 set term=screen-256color
@@ -9,12 +9,12 @@ set t_Co=256
 let g:solarlized_termcolors=256
 colorscheme solarized
 
-" pathogen stuff
+" pathogen
 call pathogen#helptags()
 call pathogen#infect()
 execute pathogen#infect('bundle.remote/{}')
 
-" general configuration stuff
+" general configuration
 set backspace=indent,eol,start " allow backspacing over everything
 set encoding=utf8	  " explains itself
 set ffs=unix,dos,mac  " set Unix as standard filetype
@@ -39,27 +39,27 @@ set nostartofline 	  " maintain horizontal position
 set mps+=<:>          " also match these when using % to jump between
 set ttimeoutlen=50
 
-" line number stuff
+" line number
 set relativenumber
 set number
 set numberwidth=3
 
-" filetype stuff
+" filetypes
 augroup FileTypeStuff
 	" for all text files set 'textwidth' to 78 characters.
-	autocmd FileType text setlocal textwidth=78
+	autocmd FileType text set textwidth=78
 
 	" auto-wrap text
-	autocmd FileType * setlocal formatoptions+=t
+	autocmd FileType * set formatoptions+=t
 
 	" auto-wrap comments and insert leader automatically
-	autocmd FileType * setlocal formatoptions+=c
-
-	" do not insert comment leader after enter in insert mode
-	autocmd FileType * setlocal formatoptions-=r
+	autocmd FileType * set formatoptions+=c
 
 	" do not insert comment leader after o/O
-	autocmd FileType * setlocal formatoptions-=o
+	autocmd FileType * set formatoptions-=o
+	"
+	" do not insert comment leader after enter in insert mode
+	autocmd FileType * set formatoptions-=r
 augroup END
 filetype plugin on
 filetype indent on
