@@ -3,7 +3,7 @@ autoload -Uz promptinit && promptinit
 autoload -U colors && colors
 setopt prompt_subst
 PROMPT='%B%{$fg[yellow]%}%~ %B%(?.%{$fg[yellow]%}.%{$fg[red]%})> %b%{$reset_color%}'
-source ~/.zsh/git_prompt.zsh
+#source ~/.zsh/git_prompt.zsh
 
 # load plugins
 source $HOME/git/antigen/antigen.zsh
@@ -11,6 +11,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle robbyrussell/oh-my-zsh plugins/colored-man-pages
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle robbyrussell/oh-my-zsh plugins/command-not-found
+antigen bundle robbyrussell/oh-my-zsh plugins/git-prompt
 #antigen bundle arialdomartini/oh-my-git
 #antigen theme arialdomartini/oh-my-git-themes oppa-lana-style
 antigen apply
