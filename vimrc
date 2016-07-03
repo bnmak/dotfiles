@@ -7,7 +7,7 @@ set background=dark
 set term=screen-256color
 set t_Co=256
 let g:solarlized_termcolors=256
-colorscheme solarized
+colorscheme jellybeans
 
 " pathogen
 call pathogen#helptags()
