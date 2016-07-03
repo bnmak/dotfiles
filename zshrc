@@ -11,6 +11,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle robbyrussell/oh-my-zsh plugins/colored-man-pages
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle robbyrussell/oh-my-zsh plugins/command-not-found
+antigen bundle robbyrussell/oh-my-zsh plugins/sudo
 antigen apply
 
 # other external stuff
