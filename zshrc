@@ -69,3 +69,6 @@ ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 
 autoload -U zmv # this is so nice
 autoload -U up # easier navigation
+
+# OPAM configuration
+. /home/brian/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

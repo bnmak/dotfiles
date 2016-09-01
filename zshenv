@@ -23,3 +23,10 @@ alias dirs='dirs -v'
 
 # some other stuff
 export CHEATCOLORS=true
+
+# ocaml path stuff
+CAML_LD_LIBRARY_PATH="/home/brian/.opam/4.03.0/lib/stublibs"; export CAML_LD_LIBRARY_PATH;
+MANPATH=":/home/brian/.opam/4.03.0/man"; export MANPATH;
+PERL5LIB="/home/brian/.opam/4.03.0/lib/perl5"; export PERL5LIB;
+OCAML_TOPLEVEL_PATH="/home/brian/.opam/4.03.0/lib/toplevel"; export OCAML_TOPLEVEL_PATH;
+PATH="/home/brian/.opam/4.03.0/bin:/home/brian/.local/bin:/home/brian/gocode:/home/brian/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"; export PATH;
