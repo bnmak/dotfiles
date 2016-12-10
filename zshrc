@@ -55,7 +55,9 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
-zstyle -e ':completion:*' hosts 'reply=()'
+local knownhosts
+knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
+zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
 
 # Ignore specific filetypes for certain programs
 # http://unix.stackexchange.com/questions/230742/bash-zsh-tab-autocomplete-given-initial-command-ignore-certain-files-in-direct
@@ -72,3 +74,5 @@ autoload -U up # easier navigation
 
 # OPAM configuration
 . /home/brian/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+

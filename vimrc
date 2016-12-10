@@ -26,7 +26,6 @@ set history=50		  " keep 50 lines of command line history
 set ruler		      " show the cursor position all the time
 set showcmd		      " display incomplete commands
 set incsearch		  " do incremental searching
-set nohlsearch        " do not highlight search terms
 set backupdir=~/.vim/.backup  " backup location
 set directory=~/tmp   " swap file location
 set modelines=0       " security hole!
@@ -38,6 +37,7 @@ set visualbell        " don't beep
 set nostartofline 	  " maintain horizontal position
 set mps+=<:>          " also match these when using % to jump between
 set ttimeoutlen=50
+runtime! ftplugin/man.vim   " view man pages within vim
 
 " line number
 set relativenumber
