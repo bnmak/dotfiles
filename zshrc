@@ -75,4 +75,5 @@ autoload -U up # easier navigation
 # OPAM configuration
 . /home/brian/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
-
+# fuzzy finding
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
