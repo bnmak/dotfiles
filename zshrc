@@ -7,26 +7,24 @@ source ~/.zsh/git_prompt.zsh
 
 # plugins
 source $HOME/git/antigen/antigen.zsh
-antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle robbyrussell/oh-my-zsh plugins/colored-man-pages
-antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle robbyrussell/oh-my-zsh plugins/command-not-found
-antigen bundle robbyrussell/oh-my-zsh plugins/sudo
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
 # other external stuff
-source $HOME/.zsh/history.zsh
-source $HOME/.zsh/dirstack.zsh
-source $HOME/.zsh/misc_stuff.zsh
 source $HOME/.zsh/bindings.zsh
+source $HOME/.zsh/dirstack.zsh
+source $HOME/.zsh/history.zsh
 
 # help system
 autoload -U run-help
 alias help=run-help
 
 # other options
-setopt auto_cd # cd by typing directory name
-setopt extendedglob # nicer wildcards
+setopt auto_cd
+setopt extendedglob
 setopt hash_list_all
 setopt mark_dirs
 
@@ -64,6 +62,10 @@ zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
 # Here, with vim, ignore .(aux|log|pdf) files
 zstyle ':completion:*:*:vim:*' file-patterns '^*.(aux|log|pdf):source-files' '*:all-files'
 
+# With certain programs, only open specific extensions
+# With green, only complete PDFs
+zstyle ':completion:*:*:green:*' file-patterns '*.pdf:source-files' '*:all-files'
+
 fignore=(\~) #ignore these extensions during completion
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
@@ -72,8 +74,8 @@ ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 autoload -U zmv # this is so nice
 autoload -U up # easier navigation
 
-# OPAM configuration
-. /home/brian/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
 # fuzzy finding
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# OPAM configuration
+#. /home/brian/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

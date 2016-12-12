@@ -12,7 +12,7 @@ export PAGER=most
 export EDITOR="vim"
 export GREP_OPTIONS='--color=auto'
 export GOPATH="/home/brian/gocode"
-export PATH="$HOME/.local/bin:$GOPATH:$PATH"
+export PATH="$HOME/.local/bin:/usr/local/bin/go/bin:$GOPATH:$PATH"
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 fpath=(~/.zsh/functions $fpath)
 
@@ -24,9 +24,13 @@ alias dirs='dirs -v'
 # some other stuff
 export CHEATCOLORS=true
 
+# fzf options
+export FZF_DEFAULT_OPTS="--ansi" 
+
 # ocaml path stuff
-CAML_LD_LIBRARY_PATH="/home/brian/.opam/4.03.0/lib/stublibs"; export CAML_LD_LIBRARY_PATH;
-MANPATH=":/home/brian/.opam/4.03.0/man"; export MANPATH;
-PERL5LIB="/home/brian/.opam/4.03.0/lib/perl5"; export PERL5LIB;
-OCAML_TOPLEVEL_PATH="/home/brian/.opam/4.03.0/lib/toplevel"; export OCAML_TOPLEVEL_PATH;
-PATH="/home/brian/.opam/4.03.0/bin:/home/brian/.local/bin:/home/brian/gocode:/home/brian/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"; export PATH;
+# CAML_LD_LIBRARY_PATH="/home/brian/.opam/4.03.0/lib/stublibs"; export CAML_LD_LIBRARY_PATH;
+# MANPATH=":/home/brian/.opam/4.03.0/man"; export MANPATH;
+# PERL5LIB="/home/brian/.opam/4.03.0/lib/perl5"; export PERL5LIB;
+# OCAML_TOPLEVEL_PATH="/home/brian/.opam/4.03.0/lib/toplevel"; export OCAML_TOPLEVEL_PATH;
+# PATH="/home/brian/.opam/4.03.0/bin:/home/brian/.local/bin:/home/brian/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+
