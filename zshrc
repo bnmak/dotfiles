@@ -7,10 +7,13 @@ source ~/.zsh/git_prompt.zsh
 
 # plugins
 source $HOME/git/antigen/antigen.zsh
+antigen bundle chrissicool/zsh-256color
+antigen bundle hcgraf/zsh-sudo
 antigen bundle robbyrussell/oh-my-zsh plugins/colored-man-pages
 antigen bundle robbyrussell/oh-my-zsh plugins/command-not-found
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen apply
 
 # other external stuff
