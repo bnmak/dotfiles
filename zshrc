@@ -4,7 +4,7 @@ autoload -U colors && colors
 setopt prompt_subst
 source ~/git/zsh-git-prompt/zshrc.sh
 GIT_PROMPT_EXECUTABLE="haskell"
-PROMPT='%B%{$fg[yellow]%}%~ %B%(?.%{$fg[yellow]%}.%{$fg[red]%})$(git_super_status)> %b%{$reset_color%}'
+PROMPT='%B%{$fg[cyan]%}%~ %B%(?.%{$fg[yellow]%}.%{$fg[red]%})$(git_super_status)> %b%{$reset_color%}'
 #source ~/.zsh/git_prompt.zsh
 
 # plugins
