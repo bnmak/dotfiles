@@ -2,8 +2,10 @@
 autoload -Uz promptinit && promptinit
 autoload -U colors && colors
 setopt prompt_subst
-PROMPT='%B%{$fg[yellow]%}%~ %B%(?.%{$fg[yellow]%}.%{$fg[red]%})> %b%{$reset_color%}'
-source ~/.zsh/git_prompt.zsh
+source ~/git/zsh-git-prompt/zshrc.sh
+GIT_PROMPT_EXECUTABLE="haskell"
+PROMPT='%B%{$fg[yellow]%}%~ %B%(?.%{$fg[yellow]%}.%{$fg[red]%})$(git_super_status)> %b%{$reset_color%}'
+#source ~/.zsh/git_prompt.zsh
 
 # plugins
 source $HOME/git/antigen/antigen.zsh
