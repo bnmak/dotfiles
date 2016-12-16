@@ -14,7 +14,7 @@ export GREP_OPTIONS='--color=auto'
 export GOPATH="/home/brian/gocode"
 export PATH="$HOME/.local/bin:/usr/local/bin/go/bin:$GOPATH:$PATH"
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
-fpath=(~/.zsh/functions $fpath)
+fpath=(~/.zsh/functions ~/.zsh/completions/ $fpath)
 
 # nice aliases
 alias ls='ls -GFhl --literal --color=auto --hide-control-chars --group-directories-first'

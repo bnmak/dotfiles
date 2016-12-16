@@ -18,33 +18,43 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen apply
 
-# other external stuff
-source $HOME/.zsh/bindings.zsh
-source $HOME/.zsh/dirstack.zsh
-source $HOME/.zsh/history.zsh
-
 # help system
 autoload -U run-help
 alias help=run-help
 
-# other options
-setopt auto_cd
-setopt extendedglob
-setopt hash_list_all
-setopt mark_dirs
+# some options
+setopt AUTO_CD
+setopt EXTENDEDGLOB
+setopt MARK_DIRS
+setopt REC_EXACT
 
-# completion
+# history options
+setopt APPEND_HISTORY
+setopt AUTO_PUSHD
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_NO_STORE
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_SILENT
+setopt SHAREHISTORY
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
+
+# completion setup
 zmodload zsh/complist
 autoload -Uz compinit && compinit
-setopt correct
-setopt always_to_end
-setopt completealiases # complete switches for aliases
-setopt complete_in_word
-setopt nomatch
+setopt ALWAYS_TO_END
+setopt COMPLETEALIASES
+setopt COMPLETE_IN_WORD
+setopt CORRECT
+setopt NOMATCH
 eval "$(dircolors -b ~/.dircolors)"
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
-zstyle ':completion:*' rehash true
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache/
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' group-name ''
@@ -82,5 +92,25 @@ autoload -U up # easier navigation
 # fuzzy finding
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# OPAM configuration
-#. /home/brian/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# keybindings and related
+bindkey -e # emacs keybinding
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+bindkey '\e.' insert-last-word
+bindkey '^w' backward-kill-word
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+# directory stack
+DIRSTACKSIZE=9
+DIRSTACKFILE="$HOME/.cache/zsh/dirs"
+if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
+    dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
+    [[ -d $dirstack[1] ]] && cd $dirstack[1] && cd $OLDPWD
+fi
+chpwd() {
+    print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
+}
