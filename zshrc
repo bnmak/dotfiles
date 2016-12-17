@@ -4,8 +4,7 @@ autoload -U colors && colors
 setopt prompt_subst
 source ~/git/zsh-git-prompt/zshrc.sh
 GIT_PROMPT_EXECUTABLE="haskell"
-PROMPT='%B%{$fg[cyan]%}%~ %B%(?.%{$fg[yellow]%}.%{$fg[red]%})$(git_super_status)> %b%{$reset_color%}'
-#source ~/.zsh/git_prompt.zsh
+PROMPT='%B%{$fg[magenta]%}%~ %B%(?.%{$fg[green]%}.%{$fg[red]%})$(git_super_status)> %b%{$reset_color%}'
 
 # plugins
 source $HOME/git/antigen/antigen.zsh
@@ -43,8 +42,8 @@ SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
 # completion setup
-zmodload zsh/complist
 autoload -Uz compinit && compinit
+zmodload zsh/complist
 setopt ALWAYS_TO_END
 setopt COMPLETEALIASES
 setopt COMPLETE_IN_WORD
@@ -53,6 +52,7 @@ setopt NOMATCH
 eval "$(dircolors -b ~/.dircolors)"
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
+zstyle ':completion:*' rehash true
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache/
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -68,7 +68,7 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
-local knownhosts
+local knownhosts > /dev/null
 knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
 zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
 

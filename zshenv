@@ -12,7 +12,7 @@ export PAGER=most
 export EDITOR="vim"
 export GREP_OPTIONS='--color=auto'
 export GOPATH="/home/brian/gocode"
-export PATH="$HOME/.local/bin:/usr/local/bin/go/bin:$GOPATH:$PATH"
+export PATH="$HOME/.local/bin:/usr/local/bin/go/bin:$GOPATH:$HOME/.rvm/bin/:$PATH"
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 fpath=(~/.zsh/functions ~/.zsh/completions/ $fpath)
 
