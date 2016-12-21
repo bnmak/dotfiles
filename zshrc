@@ -1,5 +1,3 @@
-# prompt
-autoload -Uz promptinit && promptinit
 autoload -U colors && colors
 setopt prompt_subst
 source ~/git/zsh-git-prompt/zshrc.sh
@@ -8,13 +6,10 @@ PROMPT='%B%{$fg[magenta]%}%~ %B%(?.%{$fg[green]%}.%{$fg[red]%})$(git_super_statu
 
 # plugins
 source $HOME/git/antigen/antigen.zsh
-antigen bundle chrissicool/zsh-256color
-antigen bundle hcgraf/zsh-sudo
 antigen bundle robbyrussell/oh-my-zsh plugins/colored-man-pages
 antigen bundle robbyrussell/oh-my-zsh plugins/command-not-found
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen apply
 
 # help system
@@ -25,11 +20,11 @@ alias help=run-help
 setopt AUTO_CD
 setopt EXTENDEDGLOB
 setopt MARK_DIRS
-setopt REC_EXACT
 
 # history options
 setopt APPEND_HISTORY
 setopt AUTO_PUSHD
+setopt AUTO_RESUME
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
@@ -45,11 +40,14 @@ HISTFILE=~/.zsh_history
 autoload -Uz compinit && compinit
 zmodload zsh/complist
 setopt ALWAYS_TO_END
+setopt AUTO_LIST
 setopt COMPLETEALIASES
 setopt COMPLETE_IN_WORD
 setopt CORRECT
 setopt NOMATCH
+setopt MENU_COMPLETE
 eval "$(dircolors -b ~/.dircolors)"
+zstyle '*' single-ignored complete
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 zstyle ':completion:*' rehash true
@@ -64,10 +62,10 @@ zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
+zstyle ':completion:*:(rm|kill|diff):*' ignore-line yes
 local knownhosts > /dev/null
 knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
 zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
@@ -111,6 +109,3 @@ if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
     dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
     [[ -d $dirstack[1] ]] && cd $dirstack[1] && cd $OLDPWD
 fi
-chpwd() {
-    print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
-}
