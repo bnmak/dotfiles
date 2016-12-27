@@ -87,9 +87,6 @@ ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 autoload -U zmv # this is so nice
 autoload -U up # easier navigation
 
-# fuzzy finding
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # keybindings and related
 bindkey -e # emacs keybinding
 # autoload -U edit-command-line
