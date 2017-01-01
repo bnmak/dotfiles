@@ -45,7 +45,7 @@ setopt COMPLETEALIASES
 setopt COMPLETE_IN_WORD
 setopt CORRECT
 setopt NOMATCH
-setopt MENU_COMPLETE
+#setopt MENU_COMPLETE
 eval "$(dircolors -b ~/.dircolors)"
 zstyle '*' single-ignored complete
 zstyle ':completion:*' use-compctl false
@@ -56,7 +56,7 @@ zstyle ':completion:*' cache-path ~/.zsh/cache/
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
+zstyle ':completion:*' menu select=20
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 #zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
