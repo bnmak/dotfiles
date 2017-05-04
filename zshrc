@@ -95,6 +95,7 @@ bindkey -e # emacs keybinding
 # bindkey '^x^e' edit-command-line
 bindkey '\e.' insert-last-word
 bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-pattern-search-backward
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
