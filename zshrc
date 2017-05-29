@@ -49,6 +49,7 @@ setopt NOMATCH
 eval "$(dircolors -b ~/.dircolors)"
 zstyle '*' single-ignored complete
 zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' insert-tab false
 zstyle ':completion:*' verbose true
 zstyle ':completion:*' rehash true
 zstyle ':completion::complete:*' use-cache on
