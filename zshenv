@@ -27,6 +27,9 @@ export CHEATCOLORS=true
 # fzf options
 export FZF_DEFAULT_OPTS="--ansi" 
 
+# what the fuck
+eval $(thefuck --alias)
+
 # ocaml path stuff
 # CAML_LD_LIBRARY_PATH="/home/brian/.opam/4.03.0/lib/stublibs"; export CAML_LD_LIBRARY_PATH;
 # MANPATH=":/home/brian/.opam/4.03.0/man"; export MANPATH;

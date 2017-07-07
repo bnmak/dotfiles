@@ -38,7 +38,6 @@ set smartcase         " ignore case when searching if pattern is all lowercase, 
 set visualbell        " don't beep
 set nostartofline 	  " maintain horizontal position
 set ttimeoutlen=50
-set lazyredraw
 runtime! ftplugin/man.vim   " view man pages within vim
 
 " line number
