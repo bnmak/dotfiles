@@ -1,28 +1,31 @@
 skip_global_compinit=1
 export TERM=screen-256color
 
-# Locale settings
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# most is nice
 export PAGER=most
-
-# setup environment stuff
-export EDITOR="vim"
-export GREP_OPTIONS='--color=auto'
-export GOPATH="/home/brian/gocode"
-export PATH="$HOME/.pyenv/bin:$HOME/.local/bin:/usr/local/bin/go/bin:$GOPATH:$HOME/.rvm/bin/:$PATH"
-CAML_LD_LIBRARY_PATH="/home/brian/.opam/4.03.0/lib/stublibs"; export CAML_LD_LIBRARY_PATH;
-MANPATH=":/home/brian/.opam/4.03.0/man"; export MANPATH;
-PERL5LIB="/home/brian/.opam/4.03.0/lib/perl5"; export PERL5LIB;
-OCAML_TOPLEVEL_PATH="/home/brian/.opam/4.03.0/lib/toplevel"; export OCAML_TOPLEVEL_PATH;
-# PATH="/home/brian/.opam/4.03.0/bin:/home/brian/.local/bin:/home/brian/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export CHEATCOLORS=true
+
+export GREP_OPTIONS='--color=auto'
+
+# I am going to WAY overcomplicate this...
+export GOPATH="$HOME/gocode"
+export CAML_LD_LIBRARY_PATH="$HOME/.opam/4.03.0/lib/stublibs:$PATH"
+export OCAML_TOPLEVEL_PATH="$HOME/.opam/4.03.0/lib/toplevel:$PATH"
+export OCAML_BIN_PATH="$HOME/.opam/4.03.0/bin:$PATH"
+export PERL5LIB="$HOME/.opam/4.03.0/lib/perl5"
+export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$HOME/usr/local/bin/go/bin:$GOPATH:$PATH"
+export PATH="$HOME/.rvm/bin/:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
 fpath=(~/.zsh/functions ~/.zsh/completions/ $fpath)
 
-# nice aliases
+XDG_CONFIG_HOME="$HOME/.config"
+
 alias ls='ls -GFhl --literal --color=auto --hide-control-chars --group-directories-first'
 alias more=most
 alias dirs='dirs -v'

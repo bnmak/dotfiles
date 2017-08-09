@@ -6,8 +6,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'w0rp/ale'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'Shougo/neocomplete.vim'
+" Plugin 'edkolev/tmuxline.vim'
 call vundle#end()
 
 set nocompatible
@@ -20,17 +20,12 @@ set term=screen-256color
 set t_Co=256
 set t_ut=
 let g:solarlized_termcolors=256
-colorscheme jellybeans
-
-"" pathogen
-"call pathogen#helptags()
-"call pathogen#infect()
-"execute pathogen#infect('bundle.remote/{}')
+colorscheme cobalt
 
 " general configuration
 set backspace=indent,eol,start " allow backspacing over everything
 set encoding=utf8	  " explains itself
-set ffs=unix,dos,mac  " set Unix as standard filetype
+set fileformats=unix,dos,mac  " set Unix as standard filetype
 set backup		      " keep a backup file
 set tabstop=4         " tab is four spaces
 set shiftwidth=4	  " autoinsert tab is small
