@@ -5,7 +5,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'w0rp/ale'
 Plugin 'Shougo/neocomplete.vim'
 " Plugin 'edkolev/tmuxline.vim'
 call vundle#end()
