@@ -1,4 +1,5 @@
 skip_global_compinit=1
+
 export TERM=screen-256color
 
 export LC_CTYPE=en_US.UTF-8
@@ -10,7 +11,7 @@ export CHEATCOLORS=true
 
 export GREP_OPTIONS='--color=auto'
 
-# I am going to WAY overcomplicate this...
+# This is FAR more complicated then it needs to be
 export GOPATH="$HOME/gocode"
 export CAML_LD_LIBRARY_PATH="$HOME/.opam/4.03.0/lib/stublibs:$PATH"
 export OCAML_TOPLEVEL_PATH="$HOME/.opam/4.03.0/lib/toplevel:$PATH"
@@ -29,10 +30,9 @@ XDG_CONFIG_HOME="$HOME/.config"
 alias ls='ls -GFhl --literal --color=auto --hide-control-chars --group-directories-first'
 alias more=most
 alias dirs='dirs -v'
+alias cal="gcal -H '\e[34m:\e[0m:\e[32m:\e[0m' -q US_AK"
+alias dict="dict -d gcide"
+alias thes="/usr/bin/dict -d moby-thesaurus"
 
 # what the fuck
 eval $(thefuck --alias)
-
-# pyenv
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
