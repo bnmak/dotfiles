@@ -20,10 +20,11 @@ export PERL5LIB="$HOME/.opam/4.03.0/lib/perl5"
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$HOME/usr/local/bin/go/bin:$GOPATH:$PATH"
 export PATH="$HOME/.rvm/bin/:$PATH"
+export PATH="$HOME/.npm-global/bin/:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-fpath=(~/.zsh/functions ~/.zsh/completions/ $fpath)
+fpath=(~/.zsh/functions $fpath)
 
 XDG_CONFIG_HOME="$HOME/.config"
 
@@ -33,6 +34,7 @@ alias dirs='dirs -v'
 alias cal="gcal -H '\e[34m:\e[0m:\e[32m:\e[0m' -q US_AK"
 alias dict="dict -d gcide"
 alias thes="/usr/bin/dict -d moby-thesaurus"
+alias free="free -h"
 
 # what the fuck
 eval $(thefuck --alias)

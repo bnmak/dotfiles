@@ -6,17 +6,11 @@ fi
 
 autoload -U colors && colors
 setopt prompt_subst
-source ~/git/zsh-git-prompt/zshrc.sh
-GIT_PROMPT_EXECUTABLE="haskell"
 PROMPT='%B%{$fg[magenta]%}%(1j.%j .)%~ %B%(?.%{$fg[green]%}.%{$fg[red]%})★ %b%{$reset_color%}'
 
 # plugins
-source $HOME/git/antigen/antigen.zsh
-antigen bundle robbyrussell/oh-my-zsh plugins/colored-man-pages
-antigen bundle robbyrussell/oh-my-zsh plugins/command-not-found
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-history-substring-search
-antigen apply
+source <(antibody init)
+antibody bundle < ~/.zsh/plugins.txt
 
 # help system
 autoload -U run-help
@@ -71,12 +65,10 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=20
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-#zstyle ':completion:*' list-colors ''
+zstyle ':completion:*:*:kill:*' list-colors '=(#b) #([0-9]#)*( *[a-z])*=34=31=33'
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:(rm|kill|diff):*' ignore-line yes
 local knownhosts > /dev/null
