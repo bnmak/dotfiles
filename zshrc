@@ -44,7 +44,6 @@ HISTFILE=~/.zsh_history
 # completion setup
 autoload -Uz compinit && compinit
 zmodload zsh/complist
-autoload predict-on; predict-on
 setopt ALWAYS_TO_END
 setopt AUTO_LIST
 setopt COMPLETEALIASES
