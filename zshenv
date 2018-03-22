@@ -9,32 +9,31 @@ export PAGER=most
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export CHEATCOLORS=true
 
-export GREP_OPTIONS='--color=auto'
-
-# This is FAR more complicated then it needs to be
-export GOPATH="$HOME/gocode"
-export CAML_LD_LIBRARY_PATH="$HOME/.opam/4.03.0/lib/stublibs:$PATH"
-export OCAML_TOPLEVEL_PATH="$HOME/.opam/4.03.0/lib/toplevel:$PATH"
-export OCAML_BIN_PATH="$HOME/.opam/4.03.0/bin:$PATH"
-export PERL5LIB="$HOME/.opam/4.03.0/lib/perl5"
-export PATH="$HOME/.pyenv/bin:$PATH"
-export PATH="$HOME/usr/local/bin/go/bin:$GOPATH:$PATH"
-export PATH="$HOME/.rvm/bin/:$PATH"
-export PATH="$HOME/.npm-global/bin/:$PATH"
+#export GOPATH="$HOME/gocode"
+#export CAML_LD_LIBRARY_PATH="$HOME/.opam/4.03.0/lib/stublibs:$PATH"
+#export OCAML_TOPLEVEL_PATH="$HOME/.opam/4.03.0/lib/toplevel:$PATH"
+#export OCAML_BIN_PATH="$HOME/.opam/4.03.0/bin:$PATH"
+#export PERL5LIB="$HOME/.opam/4.03.0/lib/perl5"
+#export PATH="$HOME/.pyenv/bin:$PATH"
+#export PATH="$HOME/.rvm/bin/:$PATH"
+#export PATH="$HOME/.local/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="$HOME/npm-global/bin/:$PATH"
 export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-
+export PATH="$HOME/.cargo/bin/:$PATH"
 fpath=(~/.zsh/functions $fpath)
 
 XDG_CONFIG_HOME="$HOME/.config"
 
-alias ls='ls -GFhl --literal --color=auto --hide-control-chars --group-directories-first'
+alias ls='ls -GFhl -v --literal --color=auto --hide-control-chars --group-directories-first'
 alias more=most
 alias dirs='dirs -v'
 alias cal="gcal -H '\e[34m:\e[0m:\e[32m:\e[0m' -q US_AK"
 alias dict="dict -d gcide"
 alias thes="/usr/bin/dict -d moby-thesaurus"
 alias free="free -h"
+alias grep="grep --color=auto"
+alias weather="weather -s F"
 
 # what the fuck
 eval $(thefuck --alias)
