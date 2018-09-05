@@ -6,12 +6,19 @@ fi
 
 autoload -U colors && colors
 setopt prompt_subst
-PROMPT='%B%{$fg[magenta]%}%(1j.%j .)%~ %B%(?.%{$fg[green]%}.%{$fg[red]%})$(git_super_status)★ %b%{$reset_color%}'
+PROMPT='%B%{$fg[magenta]%}%(1j.%j .)%~ %B%(?.%{$fg[green]%}.%{$fg[red]%})★ %b%{$reset_color%}'
 
 # plugins
-source ~/.zsh/zsh_plugins.zsh
-#source <(antibody init)
-#antibody bundle < ~/.zsh/plugins.txt
+source ~/.zplug/init.zsh
+
+  # specify plugins here
+  zplug "plugins/command-not-found", from:oh-my-zsh
+  zplug "plugins/debian", from:oh-my-zsh
+  zplug "zsh-users/zsh-completions"
+  zplug "zsh-users/zsh-syntax-highlighting"
+  zplug "zsh-users/zsh-history-substring-search"
+
+zplug load
 
 # help system
 autoload -U run-help
@@ -109,9 +116,3 @@ if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
     dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
     [[ -d $dirstack[1] ]] && cd $dirstack[1] && cd $OLDPWD
 fi
-
-PATH="/home/brian/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/brian/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/brian/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/brian/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/brian/perl5"; export PERL_MM_OPT;

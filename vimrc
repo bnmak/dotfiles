@@ -35,7 +35,7 @@ set ruler		      " show the cursor position all the time
 set showcmd		      " display incomplete commands
 set incsearch		  " do incremental searching
 set backupdir=~/.vim/.backup  " backup location
-set directory=~/tmp   " swap file location
+set directory=/tmp    " swap file location
 set modelines=0       " security hole!
 set wildmenu          " nice completion
 set wildmode=longest,list,full " configure this menu
