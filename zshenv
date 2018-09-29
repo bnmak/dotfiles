@@ -17,10 +17,10 @@ export CHEATCOLORS=true
 #export PATH="$HOME/.pyenv/bin:$PATH"
 #export PATH="$HOME/.rvm/bin/:$PATH"
 #export PATH="$HOME/.local/bin:$PATH"
-export PATH="/usr/local/go/bin:$PATH"
-export PATH="$HOME/npm-global/bin/:$PATH"
+#export PATH="$HOME/.cargo/bin/:$PATH"
+#export PATH="/usr/local/go/bin:$PATH"
+#export PATH="$HOME/npm-global/bin/:$PATH"
 export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.cargo/bin/:$PATH"
 fpath=(~/.zsh/functions $fpath)
 
 XDG_CONFIG_HOME="$HOME/.config"
@@ -29,11 +29,10 @@ alias ls='ls -GFhl -v --literal --color=auto --hide-control-chars --group-direct
 alias more=most
 alias dirs='dirs -v'
 alias cal="gcal -H '\e[34m:\e[0m:\e[32m:\e[0m' -q US_AK"
-alias dict="dict -d gcide"
-alias thes="/usr/bin/dict -d moby-thesaurus"
 alias free="free -h"
 alias grep="grep --color=auto"
-alias weather="weather -s F"
+alias df="df -h"
+alias dmesg="dmesg -T"
 
 # what the fuck
 eval $(thefuck --alias)
