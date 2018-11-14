@@ -9,17 +9,6 @@ export PAGER=most
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export CHEATCOLORS=true
 
-#export GOPATH="$HOME/gocode"
-#export CAML_LD_LIBRARY_PATH="$HOME/.opam/4.03.0/lib/stublibs:$PATH"
-#export OCAML_TOPLEVEL_PATH="$HOME/.opam/4.03.0/lib/toplevel:$PATH"
-#export OCAML_BIN_PATH="$HOME/.opam/4.03.0/bin:$PATH"
-#export PERL5LIB="$HOME/.opam/4.03.0/lib/perl5"
-#export PATH="$HOME/.pyenv/bin:$PATH"
-#export PATH="$HOME/.rvm/bin/:$PATH"
-#export PATH="$HOME/.local/bin:$PATH"
-#export PATH="$HOME/.cargo/bin/:$PATH"
-#export PATH="/usr/local/go/bin:$PATH"
-#export PATH="$HOME/npm-global/bin/:$PATH"
 export PATH="$HOME/bin:$PATH"
 fpath=(~/.zsh/functions $fpath)
 

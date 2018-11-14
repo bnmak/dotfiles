@@ -98,7 +98,6 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 
 autoload -U zmv # this is so nice
-autoload -U up # easier navigation
 
 # keybindings and related
 bindkey -e # emacs keybinding
