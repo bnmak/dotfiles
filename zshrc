@@ -8,25 +8,13 @@ autoload -U colors && colors
 setopt prompt_subst
 PROMPT='%B%{$fg[magenta]%}%(1j.%j .)%~ %B%(?.%{$fg[green]%}.%{$fg[red]%})★ %b%{$reset_color%}'
 
-# plugins
-source ~/.zplug/init.zsh
-
-  # specify plugins here
-  zplug "plugins/command-not-found", from:oh-my-zsh
-  zplug "plugins/debian", from:oh-my-zsh
-  zplug "zsh-users/zsh-completions"
-  zplug "zsh-users/zsh-syntax-highlighting"
-  zplug "zsh-users/zsh-history-substring-search"
-
-zplug load
-
 # help system
 autoload -U run-help
 alias help=run-help
 
 # some options
 setopt AUTO_CD
-setopt CORRECTALL
+setopt CORRECT
 setopt EXTENDEDGLOB
 setopt HASH_CMDS
 setopt IGNOREEOF
@@ -50,8 +38,8 @@ SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
 # completion setup
-autoload -Uz compinit && compinit
 zmodload zsh/complist
+autoload -Uz compinit && compinit
 setopt ALWAYS_TO_END
 setopt AUTO_LIST
 setopt COMPLETEALIASES
@@ -94,9 +82,6 @@ zstyle ':completion:*:*:green:*' file-patterns '*.pdf:source-files' '*:all-files
 
 fignore=(\~) #ignore these extensions during completion
 
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
-
 autoload -U zmv # this is so nice
 
 # keybindings and related
@@ -115,3 +100,19 @@ if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
     dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
     [[ -d $dirstack[1] ]] && cd $dirstack[1] && cd $OLDPWD
 fi
+
+# plugins
+source ~/.zplug/init.zsh
+  # specify plugins here
+  zplug "plugins/command-not-found", from:oh-my-zsh
+  zplug "plugins/debian", from:oh-my-zsh
+  zplug "zsh-users/zsh-completions"
+  zplug "zsh-users/zsh-history-substring-search"
+  zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug load
+
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
+ZSH_HIGHLIGHT_STYLES[path]='none'
+ZSH_HIGHLIGHT_STYLES[path_prefix]='none'

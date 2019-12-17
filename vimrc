@@ -1,19 +1,22 @@
 " vundle stuff
+set nocompatible
 filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'tpope/vim-surround'
 " Plugin 'edkolev/tmuxline.vim'
 call vundle#end()
+filetype plugin indent on
 
-set nocompatible
 set hidden
 
 " color
 syntax on
+syntax sync fromstart
 set background=dark
 set term=screen-256color
 set t_Co=256

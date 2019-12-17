@@ -1,7 +1,5 @@
 skip_global_compinit=1
 
-export TERM=screen-256color
-
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
 
