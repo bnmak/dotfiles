@@ -1,4 +1,3 @@
-" vundle stuff
 set nocompatible
 filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
@@ -8,23 +7,31 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tpope/vim-surround'
-" Plugin 'edkolev/tmuxline.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'dense-analysis/ale'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
+Plugin 'shougo/deoplete.nvim'
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'tpope/vim-commentary'
+Plugin 'eiginn/iptables-vim'
+"Plugin 'tpope/vim-flagship'
+"Plugin 'edkolev/tmuxline.vim'
 call vundle#end()
 filetype plugin indent on
+autocmd FileType xdefaults set commentstring=!\ %s
 
 set hidden
 
-" color
 syntax on
 syntax sync fromstart
 set background=dark
-set term=screen-256color
+
 set t_Co=256
 set t_ut=
 let g:solarlized_termcolors=256
 colorscheme cobalt
 
-" general configuration
 set backspace=indent,eol,start " allow backspacing over everything
 set encoding=utf8	  " explains itself
 set fileformats=unix,dos,mac  " set Unix as standard filetype
@@ -50,12 +57,10 @@ set nostartofline 	  " maintain horizontal position
 set ttimeoutlen=50
 runtime! ftplugin/man.vim   " view man pages within vim
 
-" line number
 set relativenumber
 set number
 set numberwidth=3
 
-" filetype stuff
 augroup FileTypeStuff
 	autocmd FileType text set textwidth=78
 	autocmd FileType * set formatoptions-=t
@@ -64,13 +69,9 @@ augroup END
 filetype plugin on
 filetype indent on
 
-" status line stuff
 set laststatus=2
+set showtabline=2
 set statusline=[%n] " buffer number
 set statusline+=\ " seperator
 set statusline+=%<%F\ \ \ " filename
 set statusline+=[%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \
-
-" make netrw be correct
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4

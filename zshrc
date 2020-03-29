@@ -4,9 +4,20 @@ if which tmux >/dev/null 2>&1; then
     test -z "$TMUX" && (tmux -2 attach || tmux -2 new-session)
 fi
 
+# plugins
+source ~/.zplug/init.zsh
+  # specify plugins here
+  zplug "plugins/command-not-found", from:oh-my-zsh
+  zplug "plugins/debian", from:oh-my-zsh
+  zplug "zsh-users/zsh-completions"
+  zplug "plugins/shrink-path", from:oh-my-zsh
+  zplug "zsh-users/zsh-history-substring-search"
+  zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug load
+
 autoload -U colors && colors
 setopt prompt_subst
-PROMPT='%B%{$fg[magenta]%}%(1j.%j .)%~ %B%(?.%{$fg[green]%}.%{$fg[red]%})★ %b%{$reset_color%}'
+PROMPT='%B%{$fg[magenta]%}%(1j.%j .)$(shrink_path -f) %B%(?.%{$fg[green]%}.%{$fg[red]%})★ %b%{$reset_color%}'
 
 # help system
 autoload -U run-help
@@ -100,16 +111,6 @@ if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
     dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
     [[ -d $dirstack[1] ]] && cd $dirstack[1] && cd $OLDPWD
 fi
-
-# plugins
-source ~/.zplug/init.zsh
-  # specify plugins here
-  zplug "plugins/command-not-found", from:oh-my-zsh
-  zplug "plugins/debian", from:oh-my-zsh
-  zplug "zsh-users/zsh-completions"
-  zplug "zsh-users/zsh-history-substring-search"
-  zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug load
 
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
