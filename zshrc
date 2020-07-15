@@ -1,4 +1,4 @@
-# TMUX
+# tmux
 if which tmux >/dev/null 2>&1; then
     #if not inside a tmux session, and if no session is started, start a new session
     test -z "$TMUX" && (tmux -2 attach || tmux -2 new-session)
@@ -6,13 +6,26 @@ fi
 
 # plugins
 source ~/.zplug/init.zsh
-  # specify plugins here
+  zplug	"zplug/zplug", hook-build:'zplug --self-manage'
+  zplug "Aloxa/fzf-tab"
   zplug "plugins/command-not-found", from:oh-my-zsh
-  zplug "plugins/debian", from:oh-my-zsh
+  zplug	"plugins/sudo", from:oh-my-zsh
   zplug "zsh-users/zsh-completions"
   zplug "plugins/shrink-path", from:oh-my-zsh
-  zplug "zsh-users/zsh-history-substring-search"
   zplug "zsh-users/zsh-syntax-highlighting", defer:2
+  zplug "zsh-users/zsh-history-substring-search"
+  zplug "plugins/colored-man-pages", from:oh-my-zsh
+  zplug "plugins/tmux", from:oh-my-zsh
+  zplug	"plugins/ufw", from:oh-my-zsh
+  # zplug "dim-an/cod"
+  # zplug "djui/alias-tips"
+  # zplug	"fcambus/asciiweather"
+  # zplug	"wting/autojump"
+  # zplug "psprint/zsh-editing-toolkit"
+  # zplug	"MikeDacre/tmux-zsh-vim-titles"
+  # zplug "lcrespom/oh-my-zsh-history-popup" 
+  # zplug "joepvd/zsh-hints"
+  zplug	"plugins/safe-paste", from:oh-my-zsh
 zplug load
 
 autoload -U colors && colors
@@ -59,7 +72,6 @@ setopt CORRECT
 setopt NOMATCH
 setopt HASH_CMDS
 
-eval "$(dircolors -b ~/.dircolors)"
 zstyle '*' single-ignored complete
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' insert-tab false
@@ -93,27 +105,33 @@ zstyle ':completion:*:*:green:*' file-patterns '*.pdf:source-files' '*:all-files
 
 fignore=(\~) #ignore these extensions during completion
 
+eval "$(dircolors -b ~/.dircolors)"
+
 autoload -U zmv # this is so nice
 
-# keybindings and related
+# keybindings
+zmodload zsh/terminfo
 bindkey -e # emacs keybinding
 bindkey '\e.' insert-last-word
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-pattern-search-backward
-zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
-# directory stack
-DIRSTACKSIZE=9
-DIRSTACKFILE="$HOME/.cache/zsh/dirs"
-if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
-    dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
-    [[ -d $dirstack[1] ]] && cd $dirstack[1] && cd $OLDPWD
-fi
 
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 ZSH_HIGHLIGHT_STYLES[path]='none'
 ZSH_HIGHLIGHT_STYLES[path_prefix]='none'
+
+# IMPORTANT! Fixes zplug job control problems
+set -o monitor
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# PATH="/home/brian/perl5/bin${PATH:+:${PATH}}"; export PATH;
+# PERL5LIB="/home/brian/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+# PERL_LOCAL_LIB_ROOT="/home/brian/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+# PERL_MB_OPT="--install_base \"/home/brian/perl5\""; export PERL_MB_OPT;
+# PERL_MM_OPT="INSTALL_BASE=/home/brian/perl5"; export PERL_MM_OPT;
