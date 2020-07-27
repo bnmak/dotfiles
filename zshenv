@@ -1,15 +1,15 @@
-export LC_CTYPE=en_US.UTF-8
-export LANG=en_US.UTF-8
+# export LC_CTYPE=en_US.UTF-8
+# export LANG=en_US.UTF-8
 
-export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
-export PAGER=most
-export EDITOR=vim
-export CHEATCOLORS=true
-export XDG_CONFIG_HOME="$HOME/.config"
+# export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+# export PAGER=most
+# export EDITOR=vim
+# export CHEATCOLORS=true
+# export XDG_CONFIG_HOME="$HOME/.config"
 
-typeset -U path
-path=(~/.local/bin ~/bin /usr/local/go/bin ~/.cargo/bin /bin /usr/bin /usr/local/bin /usr/sbin/ $PATH)
-export PATH
+# typeset -U path
+# path=(~/.local/bin ~/bin /usr/local/go/bin ~/.cargo/bin /bin /usr/bin /usr/local/bin /usr/sbin/ $PATH)
+# export PATH
 
 fpath=(~/.zsh/functions $fpath)
 
