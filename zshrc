@@ -22,27 +22,6 @@ source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-zinit light-mode for \
-    zinit-zsh/z-a-rust \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-bin-gem-node
-
-    zinit load zdharma/fast-syntax-highlighting
-    zinit load Aloxaf/fzf-tab
-    zinit load zsh-users/zsh-completions
-    zinit snippet OMZ::plugins/shrink-path/shrink-path.plugin.zsh
-    zinit snippet OMZ::plugins/command-not-found/command-not-found.plugin.zsh
-    zinit load zsh-users/zsh-history-substring-search
-    zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
-
-    zinit load psprint/zsh-editing-toolkit
-#   # zplug "psprint/zsh-editing-workbench"
-#   # zplug	"wting/autojump"
-#   # zplug	"MikeDacre/tmux-zsh-vim-titles"
-#   # zplug "lcrespom/oh-my-zsh-history-popup" 
-#   # zplug "joepvd/zsh-hints"
-#   zplug	"plugins/safe-paste", from:oh-my-zsh
 setopt AUTO_CD
 setopt CORRECT
 setopt EXTENDEDGLOB
@@ -87,8 +66,8 @@ zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=20
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:*:kill:*' list-colors '=(#b) #([0-9]#)*( *[a-z])*=34=31=33'
+# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+# zstyle ':completion:*:*:kill:*' list-colors '=(#b) #([0-9]#)*( *[a-z])*=34=31=33'
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
@@ -104,9 +83,7 @@ zstyle ':completion:*:*:green:*' file-patterns '*.pdf:source-files' '*:all-files
 
 fignore=(\~) # ignore these extensions during completion
 
-eval "$(dircolors -b ~/.dircolors)"
-
-autoload -U zmv
+# eval "$(dircolors -b ~/.dircolors)"
 
 zmodload zsh/terminfo
 
@@ -116,14 +93,32 @@ ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 ZSH_HIGHLIGHT_STYLES[path]='none'
 ZSH_HIGHLIGHT_STYLES[path_prefix]='none'
 
-# IMPORTANT! Fixes zplug job control problems
-# set -o monitor
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-bindkey -e # emacs keybinding
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
+
+    zinit light zdharma/fast-syntax-highlighting
+    zinit light aloxaf/fzf-tab
+    zinit light zsh-users/zsh-completions
+    zinit light zsh-users/zsh-history-substring-search
+    zinit snippet omz::plugins/shrink-path/shrink-path.plugin.zsh
+    zinit snippet omz::plugins/command-not-found/command-not-found.plugin.zsh
+    zinit snippet omz::plugins/colored-man-pages/colored-man-pages.plugin.zsh
+
+#    zinit load psprint/zsh-editing-toolkit
+#   # zplug "psprint/zsh-editing-workbench"
+#   # zplug	"wting/autojump"
+#   # zplug	"mikedacre/tmux-zsh-vim-titles"
+#   # zplug "lcrespom/oh-my-zsh-history-popup" 
+#   # zplug "joepvd/zsh-hints"
+#   zplug	"plugins/safe-paste", from:oh-my-zsh
+bindkey -e
 bindkey '\e.' insert-last-word
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-pattern-search-backward
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey '$terminfo[kcuu1]' history-substring-search-up
+bindkey '$terminfo[kcud1]' history-substring-search-down
