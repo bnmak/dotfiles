@@ -17,6 +17,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'andymass/vim-matchup'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+" Plugin 'chrisbra/csv.vim'
 " Plugin 'tpope/vim-flagship'
 " Plugin 'edkolev/tmuxline.vim'
 call vundle#end()
@@ -27,9 +28,9 @@ syntax on
 syntax sync fromstart
 
 set background=dark
-" set t_Co=256
-" set t_ut=
-" let g:solarlized_termcolors=256
+set t_Co=256
+set t_ut=
+let g:solarlized_termcolors=256
 colorscheme cobalt
 
 set encoding=utf8
@@ -44,8 +45,11 @@ set history=50
 set ruler
 set showcmd
 set incsearch
-set backupdir=~/.vim/.backup
-set directory=/tmp
+"set backupdir=/tmp//
+"set directory=/tmp//
+"set undodir=/tmp//
+set nobackup
+set directory=/tmp//
 set wildmenu
 set wildmode=longest,list,full
 set showmatch
@@ -58,12 +62,14 @@ set number
 set relativenumber
 set numberwidth=3
 set hidden
-runtime! ftplugin/man.vim
+runtime! ftplugin/man
+runtime! ftplugin/csv
 
 set showtabline=2
 set laststatus=2
 set guioptions-=e
 set statusline=[%n]
-set statusline+=\ "
-set statusline+=%<%F\ \ \
-set statusline+=[%M%R%H%W%Y][%{&ff}]\ \ %=\ %l/%L\ %c\ \ \
+set statusline+="\ "
+set statusline+="%<%F\ \ \"
+set statusline+="[%M%R%H%W%Y][%{&ff}]\ \ "
+set statusline+="%=\ %l/%L\ %c\ \ \"

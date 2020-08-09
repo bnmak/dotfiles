@@ -1,2 +1,4 @@
 /dotbot
 /install*
+*.swp
+*~
