@@ -35,7 +35,6 @@ colorscheme cobalt
 
 set encoding=utf8
 set backspace=indent,eol,start
-set fileformats=unix,dos,mac
 set backup
 set tabstop=4
 set shiftwidth=4
@@ -45,11 +44,6 @@ set history=50
 set ruler
 set showcmd
 set incsearch
-"set backupdir=/tmp//
-"set directory=/tmp//
-"set undodir=/tmp//
-set nobackup
-set directory=/tmp//
 set wildmenu
 set wildmode=longest,list,full
 set showmatch
@@ -62,8 +56,15 @@ set number
 set relativenumber
 set numberwidth=3
 set hidden
+
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
+set undodir=~/.vim/.undo//
+set writebackup
+
 runtime! ftplugin/man
 runtime! ftplugin/csv
+runtime! ~/.vim/plugin/source_plugin_configs.vim
 
 set showtabline=2
 set laststatus=2
@@ -73,3 +74,6 @@ set statusline+="\ "
 set statusline+="%<%F\ \ \"
 set statusline+="[%M%R%H%W%Y][%{&ff}]\ \ "
 set statusline+="%=\ %l/%L\ %c\ \ \"
+
+let g:loaded_netrw = 0
+let g:loaded_netrwPlugin = 0

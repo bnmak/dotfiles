@@ -1,33 +1,47 @@
-# export LC_CTYPE=en_US.UTF-8
-# export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+export PAGER=most
+export MANPAGER=most
+export EDITOR=nvim
+export VISUAL=nvim
 
-# export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
-# export PAGER=most
-# export EDITOR=vim
-# export CHEATCOLORS=true
-# export XDG_CONFIG_HOME="$HOME/.config"
+export D=~/Downloads
+export P=~/000_in_progress
+export R=~/111_ready
+export C=~/.config
+export W=~/w10
+export F=~/long_organizational_projects/Fonts
 
-# typeset -U path
-# path=(~/.local/bin ~/bin /usr/local/go/bin ~/.cargo/bin /bin /usr/bin /usr/local/bin /usr/sbin/ $PATH)
-# export PATH
+export MAN_POSIXLY_CORRECT=1
 
-fpath=(~/.zsh/functions $fpath)
+export FZF_DEFAULT_OPTS="--no-multi --no-mouse --layout=reverse --border=horizontal --ansi --height=45% --margin=10%,25%,25%,1%"
+#export FZF_DEFAULT_OPTS="--multi --no-mouse --cycle --hidden --height=45% --margin=10%,25%,25%,1%"
+# -n FIELD_INDEX_EXPRESSION
 
-alias ls='ls -GFhl -v --literal --color=always --hide-control-chars --group-directories-first'
-alias cal="gcal -H '\e[34m:\e[0m:\e[32m:\e[0m' -q US_AK"
+typeset -U path PATH
+path=( ~/.local/bin
+	~/bin
+	.gem/ruby/2.7.0/bin
+	/bin
+	/usr/bin
+	/usr/local/bin
+	/usr/sbin/
+	$PATH )
+export PATH
+
+fpath=( ~/.zsh/functions
+	$fpath )
+
+alias df="df -hlT --total"
+alias dmesg="dmesg -T"
+alias feh="feh -F"
 alias free="free -h"
 alias grep="grep --color=auto"
-alias df="df -h"
-alias dmesg="dmesg -T"
-alias uptime="uptime -p"
+alias ll='\ls -hl --color=always --group-directories-first --file-type'
+alias ls='ls -N --color=always --group-directories-first -v --file-type'
+alias lss='\ls -N --color=always -s -k -h --group-directories-first -v'
 alias more="most"
-alias weather="weather panc"
-alias yacreader="YACReader"
-
-# what the fuck
-eval $(thefuck --alias)
-
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
-ZSH_HIGHLIGHT_STYLES[path]='none'
-ZSH_HIGHLIGHT_STYLES[path_prefix]='none'
+alias uptime="uptime -p"
+alias vim-gtk="nvim-gtk"
+alias vim="nvim"
