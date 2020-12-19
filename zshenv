@@ -15,8 +15,7 @@ export F=~/long_organizational_projects/Fonts
 
 export MAN_POSIXLY_CORRECT=1
 
-export FZF_DEFAULT_OPTS="--no-multi --no-mouse --layout=reverse --border=horizontal --ansi --height=45% --margin=10%,25%,25%,1%"
-#export FZF_DEFAULT_OPTS="--multi --no-mouse --cycle --hidden --height=45% --margin=10%,25%,25%,1%"
+export FZF_DEFAULT_OPTS="--info=hidden --no-multi --no-mouse --layout=reverse --border=rounded --ansi --height=45% --margin=10%,25%,25%,1% --black"
 # -n FIELD_INDEX_EXPRESSION
 
 typeset -U path PATH
@@ -29,6 +28,8 @@ path=( ~/.local/bin
 	/usr/sbin/
 	$PATH )
 export PATH
+
+module_path+=( "/home/brian/.zinit/bin/zmodules/Src" )
 
 fpath=( ~/.zsh/functions
 	$fpath )
@@ -45,3 +46,4 @@ alias more="most"
 alias uptime="uptime -p"
 alias vim-gtk="nvim-gtk"
 alias vim="nvim"
+alias tdir="mktemp -d"
